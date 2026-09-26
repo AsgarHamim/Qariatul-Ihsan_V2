@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store — Qariatul Ihsan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --linen:#F6F1E6;
+    --linen-deep:#EFE7D5;
+    --ink:#26221B;
+    --ink-soft:#5C5748;
+    --forest:#24402F;
+    --forest-light:#345841;
+    --forest-pale:#DCE6DD;
+    --gold:#A9772F;
+    --gold-soft:#F1E3C8;
+    --rust:#9C4B2E;
+    --rust-dark:#7E3B22;
+    --card:#FFFDF8;
+    --line:#E3DAC3;
+    --radius:3px;
+    --shadow: 0 1px 2px rgba(38,34,27,0.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--linen);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  button{font-family:inherit;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  html[data-lang="bn"] body{font-family:'Noto Sans Bengali',sans-serif;}
+  html[data-lang="bn"] h1,html[data-lang="bn"] h2,html[data-lang="bn"] .display,html[data-lang="bn"] .logo{font-family:'Noto Sans Bengali',sans-serif;letter-spacing:0;}
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:40;
+    background:var(--forest);
+    color:#F3EFE3;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .header-inner{
+    max-width:1440px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+    gap:18px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:500;
+    color:#FBF7EC;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .logo img{
+    width:50px;
+    height:50px;
+    object-fit:cover;
+    border-radius:7px;
+    flex-shrink:0;
+  }
+  .logo span{color:inherit;}
+  nav.main-nav{
+    display:flex;
+    flex:1;
+    justify-content:center;
+    gap:clamp(14px, 1.45vw, 28px);
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    font-size:14.5px;
+  }
+  nav.main-nav a{
+    text-decoration:none;
+    color:rgba(243,239,227,0.78);
+    padding:6px 0;
+    position:relative;
+    transition:color .15s ease;
+  }
+  nav.main-nav a:hover{color:#FBF7EC;}
+  nav.main-nav a.active{color:#FBF7EC;}
+  nav.main-nav a.active::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-2px;
+    height:2px; background:var(--gold);
+  }
+  .header-right{display:flex; align-items:center; gap:14px; flex-shrink:0;}
+  .lang-switch{display:flex;align-items:center;gap:4px;padding:4px;border:1px solid rgba(243,239,227,0.28);border-radius:999px;}
+  .lang-btn{border:0;background:transparent;color:rgba(243,239,227,0.72);padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer;}
+  .lang-btn.active{background:#FBF7EC;color:var(--forest);}
+  .cart-btn{
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    width:40px; height:40px;
+    background:transparent;
+    border:1px solid rgba(243,239,227,0.28);
+    border-radius:999px;
+    color:#F3EFE3;
+    cursor:pointer;
+    transition:border-color .15s ease, transform .12s ease;
+  }
+  .cart-btn:hover{border-color:#F3EFE3;}
+  .cart-btn.pulse{animation:pulse .32s ease;}
+  @keyframes pulse{ 50%{ transform:scale(1.12); } }
+  .cart-badge{
+    position:absolute; top:-6px; right:-6px;
+    min-width:18px; height:18px; padding:0 4px;
+    background:var(--rust); color:#fff;
+    border-radius:999px;
+    font-size:11px; font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+    line-height:1;
+    border:2px solid var(--forest);
+  }
+  .nav-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .store-hero{
+    position:relative;
+    height:236px;
+    display:flex; align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(20,34,25,0.35) 0%, rgba(20,34,25,0.72) 100%),
+      radial-gradient(ellipse at 15% 20%, rgba(169,119,47,0.35), transparent 55%),
+      linear-gradient(135deg, #2E4C38 0%, #1C3324 65%, #16261B 100%);
+    overflow:hidden;
+  }
+  .store-hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 34px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    max-width:1200px; width:100%; margin:0 auto;
+    padding:0 28px 26px;
+    color:#FBF7EC;
+  }
+  .hero-eyebrow{
+    font-size:13.5px;
+    color:#D9C89A;
+    margin:0 0 6px;
+  }
+  .hero-inner h1{
+    margin:0 0 6px;
+    font-size:clamp(28px, 4vw, 40px);
+    color:#FFFCF4;
+  }
+  .hero-inner p{
+    margin:0;
+    max-width:520px;
+    font-size:15px;
+    color:rgba(251,247,236,0.82);
+    line-height:1.5;
+  }
+
+  /* ---------- Filter bar ---------- */
+  .filter-bar{
+    position:sticky; top:73px; z-index:30;
+    background:var(--linen);
+    border-bottom:1px solid var(--line);
+  }
+  .filter-inner{
+    max-width:1200px; margin:0 auto;
+    padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:20px; flex-wrap:wrap;
+  }
+  .filter-tabs{display:flex; gap:6px; flex-wrap:wrap;}
+  .filter-tab{
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink-soft);
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:13.5px;
+    font-weight:500;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .filter-tab:hover{border-color:var(--forest-light); color:var(--forest);}
+  .filter-tab.active{
+    background:var(--forest);
+    border-color:var(--forest);
+    color:#FBF7EC;
+  }
+  .filter-controls{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
+  .control{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-soft);}
+  .control select{
+    appearance:none;
+    -webkit-appearance:none;
+    background:var(--card) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6"><path d="M0 0l5 6 5-6z" fill="%235C5748"/></svg>') no-repeat right 12px center;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:8px 30px 8px 12px;
+    font-size:13.5px;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .result-count{
+    max-width:1200px; margin:0 auto; padding:16px 28px 0;
+    font-size:13px; color:var(--ink-soft);
+  }
+
+  /* ---------- Product grid ---------- */
+  .catalog{max-width:1200px; margin:0 auto; padding:20px 28px 8px;}
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:26px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{border-color:#CBBE99; transform:translateY(-2px);}
+  .card-media{
+    position:relative;
+    aspect-ratio:4/3;
+    display:flex; align-items:center; justify-content:center;
+    font-size:44px;
+  }
+  .card-tag{
+    position:absolute; top:10px; left:10px;
+    background:rgba(251,247,236,0.92);
+    color:var(--forest);
+    font-size:11px; font-weight:600;
+    padding:4px 9px;
+    border-radius:999px;
+    letter-spacing:.01em;
+  }
+  .card-body{padding:16px 16px 18px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .card-name{font-size:15.5px; font-weight:600; margin:0; line-height:1.35;}
+  .card-unit{font-size:12.5px; color:var(--ink-soft); margin:-6px 0 0;}
+  .price-row{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .card-price{font-family:'Fraunces', serif; font-size:19px; color:var(--gold); font-weight:500;}
+  .card-footer{margin-top:auto; display:flex; flex-direction:column; gap:10px;}
+  .stepper{
+    display:inline-flex; align-items:center;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    width:fit-content;
+  }
+  .stepper button{
+    width:32px; height:32px;
+    background:none; border:none;
+    font-size:16px; color:var(--forest);
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .stepper button:disabled{color:#C9C2AC; cursor:not-allowed;}
+  .stepper button:hover:not(:disabled){background:var(--forest-pale);}
+  .stepper .qty{
+    width:34px; text-align:center; font-size:14px; font-weight:600;
+    border-left:1px solid var(--line); border-right:1px solid var(--line);
+    height:32px; line-height:32px;
+  }
+  .add-btn{
+    border:none; background:var(--rust); color:#FBF7EC;
+    padding:10px 14px; border-radius:var(--radius);
+    font-size:13.5px; font-weight:600; letter-spacing:.01em;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .add-btn:hover{background:var(--rust-dark);}
+  .add-btn.added{background:var(--forest-light);}
+
+  .empty-state{
+    text-align:center; padding:64px 20px; color:var(--ink-soft);
+    grid-column:1/-1;
+  }
+  .empty-state .display{font-size:20px; color:var(--ink); margin-bottom:6px;}
+
+  /* ---------- Pagination ---------- */
+  .pagination{
+    max-width:1200px; margin:0 auto;
+    padding:34px 28px 56px;
+    display:flex; align-items:center; justify-content:center; gap:22px;
+  }
+  .page-btn{
+    border:none; background:none; cursor:pointer;
+    font-size:14px; color:var(--ink-soft);
+    padding:6px 4px;
+  }
+  .page-btn:disabled{color:#D3CBB4; cursor:not-allowed;}
+  .page-numbers{display:flex; gap:18px;}
+  .page-num{
+    border:none; background:none; cursor:pointer;
+    font-family:'Fraunces', serif;
+    font-size:15px; color:var(--ink-soft);
+    padding:2px 0;
+    border-bottom:2px solid transparent;
+  }
+  .page-num.active{color:var(--forest); border-color:var(--gold);}
+
+  /* ---------- Cart drawer ---------- */
+  .scrim{
+    position:fixed; inset:0; background:rgba(22,30,22,0.42);
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+    z-index:50;
+  }
+  .scrim.open{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; height:100%;
+    width:380px; max-width:88vw;
+    background:var(--linen);
+    box-shadow:-6px 0 24px rgba(0,0,0,0.14);
+    z-index:60;
+    transform:translateX(100%);
+    transition:transform .28s ease;
+    display:flex; flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 22px; border-bottom:1px solid var(--line);
+  }
+  .drawer-header h2{margin:0; font-size:19px;}
+  .drawer-close{background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink-soft); line-height:1;}
+  .drawer-items{flex:1; overflow-y:auto; padding:8px 22px;}
+  .drawer-empty{padding:60px 10px; text-align:center; color:var(--ink-soft); font-size:14px;}
+  .drawer-item{
+    display:flex; gap:12px; padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .drawer-item .thumb{
+    width:52px; height:52px; border-radius:var(--radius);
+    background:var(--forest-pale); display:flex; align-items:center; justify-content:center;
+    font-size:22px; flex-shrink:0;
+  }
+  .drawer-item .info{flex:1; min-width:0;}
+  .drawer-item .info .name{font-size:14px; font-weight:600; margin:0 0 2px;}
+  .drawer-item .info .meta{font-size:12.5px; color:var(--ink-soft);}
+  .drawer-item .line-price{font-size:14px; font-weight:600; color:var(--gold); white-space:nowrap;}
+  .drawer-item .remove{
+    background:none; border:none; color:var(--ink-soft); font-size:12px;
+    text-decoration:underline; cursor:pointer; padding:0; margin-top:4px;
+  }
+  .drawer-footer{padding:18px 22px 22px; border-top:1px solid var(--line);}
+  .drawer-subtotal{display:flex; justify-content:space-between; font-size:15px; margin-bottom:14px;}
+  .drawer-subtotal strong{font-family:'Fraunces', serif; font-size:18px; color:var(--gold);}
+  .checkout-btn{
+    width:100%; padding:13px; border:none; border-radius:var(--radius);
+    background:var(--forest); color:#FBF7EC; font-size:14.5px; font-weight:600;
+    cursor:pointer;
+  }
+  .checkout-btn:hover{background:var(--forest-light);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:920px){
+    .product-grid{grid-template-columns:repeat(2, 1fr);}
+    nav.main-nav{display:none;}
+  }
+  @media (max-width:560px){
+    .product-grid{grid-template-columns:1fr;}
+    .header-inner{padding:14px 18px;}
+    .logo{font-size:16px;gap:8px;}
+    .logo img{width:42px;height:42px;}
+    .filter-inner{padding:14px 18px;}
+    .catalog{padding:18px 18px 8px;}
+    .hero-inner{padding:0 18px 22px;}
+    .filter-bar{top:65px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <img src="../qariatul-ihsan-logo.png" alt="" aria-hidden="true">
+      <span>Qariatul Ihsan</span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="../index.html#home" data-i18n="nav.home">Home</a>
+      <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#land" data-i18n="nav.land">Our Land</a>
+      <a href="../index.html#agriculture" data-i18n="nav.agri">Agriculture</a>
+      <a href="../index.html#community" data-i18n="nav.community">Community</a>
+      <a href="store.html" class="active" data-i18n="nav.store">Store</a>
+      <a href="../index.html#journal" data-i18n="nav.stories">Stories</a>
+      <a href="../index.html#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switch" aria-label="Language">
+        <button class="lang-btn active" type="button" data-setlang="en">English</button>
+        <button class="lang-btn" type="button" data-setlang="bn">বাংলা</button>
+      </div>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart" data-i18n-aria="cart.open">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9.5" cy="20.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="17.5" cy="20.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+        <span class="cart-badge" id="cartBadge" hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="store-hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Qariatul Ihsan Store</p>
+    <h1 data-i18n="hero.title">From our land to your home</h1>
+    <p data-i18n="hero.sub">What the fields, the pond and Bangladesh's weavers have given us, now carried to yours.</p>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="filter-tabs" id="filterTabs" role="tablist" aria-label="Filter products by category">
+      <button class="filter-tab active" data-filter="all" data-i18n="filter.all">All Products</button>
+      <button class="filter-tab" data-filter="vegetables" data-i18n="filter.vegetables">Vegetables &amp; Fruits</button>
+      <button class="filter-tab" data-filter="meat" data-i18n="filter.meat">Meat &amp; Eggs</button>
+      <button class="filter-tab" data-filter="fish" data-i18n="filter.fish">Fish</button>
+      <button class="filter-tab" data-filter="groceries" data-i18n="filter.groceries">Groceries</button>
+      <button class="filter-tab" data-filter="clothing" data-i18n="filter.clothing">Clothing</button>
+    </div>
+    <div class="filter-controls">
+      <div class="control">
+        <label for="sortSelect" data-i18n="controls.sort">Sort by</label>
+        <select id="sortSelect">
+          <option value="featured" data-i18n="sort.featured">Featured</option>
+          <option value="price-asc" data-i18n="sort.low">Price: Low to High</option>
+          <option value="price-desc" data-i18n="sort.high">Price: High to Low</option>
+          <option value="name" data-i18n="sort.name">Name: A–Z</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="perPageSelect" data-i18n="controls.show">Show</label>
+        <select id="perPageSelect">
+          <option value="6" selected data-i18n="perPage.6">6 per page</option>
+          <option value="9" data-i18n="perPage.9">9 per page</option>
+          <option value="12" data-i18n="perPage.12">12 per page</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="result-count" id="resultCount"></p>
+
+<main class="catalog">
+  <div class="product-grid" id="productGrid"></div>
+</main>
+
+<nav class="pagination" id="pagination" aria-label="Pagination"></nav>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-header">
+    <h2 data-i18n="cart.title">Your cart</h2>
+    <button class="drawer-close" id="drawerClose" aria-label="Close cart" data-i18n-aria="cart.close">&times;</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-footer">
+    <div class="drawer-subtotal">
+      <span data-i18n="cart.subtotal">Subtotal</span>
+      <strong id="subtotal">৳0</strong>
+    </div>
+    <button class="checkout-btn" data-i18n="cart.checkout">Proceed to checkout</button>
+  </div>
+</aside>
+
+<script>
+const dict = {
+  en:{
+    "title":"Store — Qariatul Ihsan",
+    "nav.home":"Home","nav.about":"About","nav.land":"Our Land","nav.agri":"Agriculture","nav.community":"Community","nav.store":"Store","nav.stories":"Stories","nav.gallery":"Gallery","nav.contact":"Contact",
+    "hero.eyebrow":"Qariatul Ihsan Store","hero.title":"From our land to your home","hero.sub":"What the fields, the pond and Bangladesh's weavers have given us, now carried to yours.",
+    "filter.all":"All Products","filter.vegetables":"Vegetables & Fruits","filter.meat":"Meat & Eggs","filter.fish":"Fish","filter.groceries":"Groceries","filter.clothing":"Clothing",
+    "controls.sort":"Sort by","controls.show":"Show","sort.featured":"Featured","sort.low":"Price: Low to High","sort.high":"Price: High to Low","sort.name":"Name: A–Z",
+    "perPage.6":"6 per page","perPage.9":"9 per page","perPage.12":"12 per page",
+    "cart.open":"Open cart","cart.close":"Close cart","cart.title":"Your cart","cart.subtotal":"Subtotal","cart.checkout":"Proceed to checkout","cart.empty":"Your cart is empty.","cart.emptySub":"Add something grown or made with care.","cart.remove":"Remove",
+    "product.add":"Add to cart","product.added":"Added ✓","qty.decrease":"Decrease quantity","qty.increase":"Increase quantity",
+    "empty.title":"No products here yet","empty.body":"Try a different category — more from the land is on its way.","page.previous":"← Previous","page.next":"Next →"
+  },
+  bn:{
+    "title":"দোকান — কারিয়াতুল ইহসান",
+    "nav.home":"হোম","nav.about":"পরিচিতি","nav.land":"আমাদের জমি","nav.agri":"কৃষি","nav.community":"সম্প্রদায়","nav.store":"দোকান","nav.stories":"গল্প","nav.gallery":"গ্যালারি","nav.contact":"যোগাযোগ",
+    "hero.eyebrow":"কারিয়াতুল ইহসান দোকান","hero.title":"আমাদের জমি থেকে আপনার ঘরে","hero.sub":"মাঠ, পুকুর ও বাংলাদেশের তাঁতিদের দেওয়া উপহার এখন পৌঁছে যাচ্ছে আপনার ঘরে।",
+    "filter.all":"সব পণ্য","filter.vegetables":"শাকসবজি ও ফল","filter.meat":"মাংস ও ডিম","filter.fish":"মাছ","filter.groceries":"মুদিপণ্য","filter.clothing":"পোশাক",
+    "controls.sort":"সাজান","controls.show":"দেখান","sort.featured":"নির্বাচিত","sort.low":"দাম: কম থেকে বেশি","sort.high":"দাম: বেশি থেকে কম","sort.name":"নাম: ক–হ",
+    "perPage.6":"প্রতি পাতায় ৬টি","perPage.9":"প্রতি পাতায় ৯টি","perPage.12":"প্রতি পাতায় ১২টি",
+    "cart.open":"কার্ট খুলুন","cart.close":"কার্ট বন্ধ করুন","cart.title":"আপনার কার্ট","cart.subtotal":"মোট","cart.checkout":"চেকআউট করুন","cart.empty":"আপনার কার্ট খালি।","cart.emptySub":"যত্নে উৎপাদিত বা তৈরি কোনো পণ্য যোগ করুন।","cart.remove":"সরান",
+    "product.add":"কার্টে যোগ করুন","product.added":"যোগ হয়েছে ✓","qty.decrease":"পরিমাণ কমান","qty.increase":"পরিমাণ বাড়ান",
+    "empty.title":"এখানে এখনো কোনো পণ্য নেই","empty.body":"অন্য বিভাগ দেখুন — জমি থেকে আরও পণ্য শিগগিরই আসছে।","page.previous":"← আগের পাতা","page.next":"পরের পাতা →"
+  }
+};
+
+let currentLang = localStorage.getItem('qi-lang') || 'en';
+function t(key){ return dict[currentLang][key] || dict.en[key] || key; }
+function productText(product,key){ return product[key][currentLang] || product[key].en; }
+function bnDigits(value){ return String(value).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]); }
+
+const products = [
+  { id:1, name:{en:"Seasonal Vegetables",bn:"মৌসুমি সবজি"}, unit:{en:"per kg",bn:"প্রতি কেজি"}, price:180, icon:"🥬", cat:"vegetables", tag:{en:"Vegetables & Fruits",bn:"শাকসবজি ও ফল"} },
+  { id:2, name:{en:"Orchard Fruits",bn:"বাগানের ফল"}, unit:{en:"per kg",bn:"প্রতি কেজি"}, price:320, icon:"🍊", cat:"vegetables", tag:{en:"Vegetables & Fruits",bn:"শাকসবজি ও ফল"} },
+  { id:3, name:{en:"Rice Atta",bn:"চালের আটা"}, unit:{en:"per kg",bn:"প্রতি কেজি"}, price:90, icon:"🌾", cat:"groceries", tag:{en:"Groceries",bn:"মুদিপণ্য"} },
+  { id:4, name:{en:"Mustard Oil",bn:"সরিষার তেল"}, unit:{en:"per litre",bn:"প্রতি লিটার"}, price:450, icon:"🫙", cat:"groceries", tag:{en:"Groceries",bn:"মুদিপণ্য"} },
+  { id:5, name:{en:"Farm Fresh Eggs",bn:"খামারের তাজা ডিম"}, unit:{en:"per dozen",bn:"প্রতি ডজন"}, price:140, icon:"🥚", cat:"meat", tag:{en:"Meat & Eggs",bn:"মাংস ও ডিম"} },
+  { id:6, name:{en:"Raw Honey",bn:"খাঁটি মধু"}, unit:{en:"per jar",bn:"প্রতি বয়াম"}, price:650, icon:"🍯", cat:"groceries", tag:{en:"Groceries",bn:"মুদিপণ্য"} },
+  { id:7, name:{en:"Duck Eggs",bn:"হাঁসের ডিম"}, unit:{en:"per dozen",bn:"প্রতি ডজন"}, price:160, icon:"🦆", cat:"meat", tag:{en:"Meat & Eggs",bn:"মাংস ও ডিম"} },
+  { id:8, name:{en:"Pond Fish (Rui)",bn:"পুকুরের মাছ (রুই)"}, unit:{en:"per kg",bn:"প্রতি কেজি"}, price:380, icon:"🐟", cat:"fish", tag:{en:"Fish",bn:"মাছ"} },
+  { id:9, name:{en:"Nakshi Kantha Shawl",bn:"নকশিকাঁথার শাল"}, unit:{en:"each",bn:"প্রতিটি"}, price:1850, icon:"🧵", cat:"clothing", tag:{en:"Clothing",bn:"পোশাক"} },
+  { id:10, name:{en:"Handloom Cotton Saree",bn:"হস্তচালিত তাঁতের সুতি শাড়ি"}, unit:{en:"each",bn:"প্রতিটি"}, price:2400, icon:"🥻", cat:"clothing", tag:{en:"Clothing",bn:"পোশাক"} },
+  { id:11, name:{en:"Jamdani Scarf",bn:"জামদানি স্কার্ফ"}, unit:{en:"each",bn:"প্রতিটি"}, price:1200, icon:"🧣", cat:"clothing", tag:{en:"Clothing",bn:"পোশাক"} },
+  { id:12, name:{en:"Khadi Panjabi",bn:"খাদি পাঞ্জাবি"}, unit:{en:"each",bn:"প্রতিটি"}, price:1650, icon:"👘", cat:"clothing", tag:{en:"Clothing",bn:"পোশাক"} },
+];
+
+const mediaBg = {
+  vegetables:"linear-gradient(135deg,#E7EEDD,#CFE0C2)",
+  meat:"linear-gradient(135deg,#F4E4D8,#E7C9B5)",
+  fish:"linear-gradient(135deg,#DDECEF,#BAD8DE)",
+  groceries:"linear-gradient(135deg,#EEE7D2,#DACB9C)",
+  clothing:"linear-gradient(135deg,#F1E3C8,#E3CFA0)"
+};
+
+let state = { filter:"all", sort:"featured", perPage:6, page:1, qty:{}, cart:{} };
+products.forEach(p => state.qty[p.id] = 1);
+
+const grid = document.getElementById('productGrid');
+const pagination = document.getElementById('pagination');
+const resultCount = document.getElementById('resultCount');
+
+function fmt(n){ const amount=n.toLocaleString('en-IN'); return "৳" + (currentLang==='bn' ? bnDigits(amount) : amount); }
+
+function getFiltered(){
+  let list = state.filter === 'all' ? products.slice() : products.filter(p => p.cat === state.filter);
+  if(state.sort === 'price-asc') list.sort((a,b)=>a.price-b.price);
+  if(state.sort === 'price-desc') list.sort((a,b)=>b.price-a.price);
+  if(state.sort === 'name') list.sort((a,b)=>productText(a,'name').localeCompare(productText(b,'name'),currentLang));
+  return list;
+}
+
+function render(){
+  const filtered = getFiltered();
+  const totalPages = Math.max(1, Math.ceil(filtered.length / state.perPage));
+  if(state.page > totalPages) state.page = totalPages;
+  const start = (state.page - 1) * state.perPage;
+  const pageItems = filtered.slice(start, start + state.perPage);
+
+  if(filtered.length){
+    const from=currentLang==='bn'?bnDigits(start+1):start+1;
+    const to=currentLang==='bn'?bnDigits(Math.min(start+state.perPage,filtered.length)):Math.min(start+state.perPage,filtered.length);
+    const total=currentLang==='bn'?bnDigits(filtered.length):filtered.length;
+    resultCount.textContent=currentLang==='bn'?`মোট ${total}টি পণ্যের মধ্যে ${from}–${to}টি দেখানো হচ্ছে`:`Showing ${from}–${to} of ${total} products`;
+  }else resultCount.textContent="";
+
+  grid.innerHTML = "";
+  if(!pageItems.length){
+    grid.innerHTML = `<div class="empty-state"><p class="display">${t('empty.title')}</p><p>${t('empty.body')}</p></div>`;
+  }
+  pageItems.forEach(p => {
+    const qty = state.qty[p.id];
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-media" style="background:${mediaBg[p.cat]}">
+        <span class="card-tag">${productText(p,'tag')}</span>
+        <span aria-hidden="true">${p.icon}</span>
+      </div>
+      <div class="card-body">
+        <div>
+          <p class="card-name">${productText(p,'name')}</p>
+          <p class="card-unit">${productText(p,'unit')}</p>
+        </div>
+        <div class="price-row">
+          <div class="card-price">${fmt(p.price)}</div>
+          <div class="stepper">
+            <button type="button" data-action="dec" data-id="${p.id}" aria-label="${t('qty.decrease')}" ${qty<=1?'disabled':''}>–</button>
+            <span class="qty" aria-live="polite">${currentLang==='bn'?bnDigits(qty):qty}</span>
+            <button type="button" data-action="inc" data-id="${p.id}" aria-label="${t('qty.increase')}">+</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="add-btn" data-action="add" data-id="${p.id}">${t('product.add')}</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  pagination.innerHTML = "";
+  if(totalPages > 1){
+    const prev = document.createElement('button');
+    prev.className = 'page-btn'; prev.textContent = t('page.previous');
+    prev.disabled = state.page === 1;
+    prev.onclick = () => { state.page--; render(); window.scrollTo({top:document.querySelector('.filter-bar').offsetTop - 80, behavior:'smooth'}); };
+    pagination.appendChild(prev);
+
+    const nums = document.createElement('div');
+    nums.className = 'page-numbers';
+    for(let i=1;i<=totalPages;i++){
+      const b = document.createElement('button');
+      b.className = 'page-num' + (i===state.page ? ' active':'');
+      b.textContent = i;
+      b.onclick = () => { state.page = i; render(); window.scrollTo({top:document.querySelector('.filter-bar').offsetTop - 80, behavior:'smooth'}); };
+      nums.appendChild(b);
+    }
+    pagination.appendChild(nums);
+
+    const next = document.createElement('button');
+    next.className = 'page-btn'; next.textContent = t('page.next');
+    next.disabled = state.page === totalPages;
+    next.onclick = () => { state.page++; render(); window.scrollTo({top:document.querySelector('.filter-bar').offsetTop - 80, behavior:'smooth'}); };
+    pagination.appendChild(next);
+  }
+}
+
+grid.addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-action]');
+  if(!btn) return;
+  const id = Number(btn.dataset.id);
+  const action = btn.dataset.action;
+  if(action === 'inc'){ state.qty[id]++; render(); }
+  if(action === 'dec'){ if(state.qty[id] > 1){ state.qty[id]--; render(); } }
+  if(action === 'add'){
+    const p = products.find(p => p.id === id);
+    const qty = state.qty[id];
+    state.cart[id] = (state.cart[id] || 0) + qty;
+    state.qty[id] = 1;
+    renderCart();
+    document.getElementById('cartBtn').classList.remove('pulse');
+    void document.getElementById('cartBtn').offsetWidth;
+    document.getElementById('cartBtn').classList.add('pulse');
+    btn.textContent = t('product.added');
+    btn.classList.add('added');
+    setTimeout(() => { btn.textContent = t('product.add'); btn.classList.remove('added'); }, 1100);
+    render();
+  }
+});
+
+document.getElementById('filterTabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-tab');
+  if(!btn) return;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  state.filter = btn.dataset.filter;
+  state.page = 1;
+  render();
+});
+
+document.getElementById('sortSelect').addEventListener('change', (e) => { state.sort = e.target.value; state.page = 1; render(); });
+document.getElementById('perPageSelect').addEventListener('change', (e) => { state.perPage = Number(e.target.value); state.page = 1; render(); });
+
+// Cart drawer
+const drawer = document.getElementById('drawer');
+const scrim = document.getElementById('scrim');
+function openDrawer(){ drawer.classList.add('open'); scrim.classList.add('open'); }
+function closeDrawer(){ drawer.classList.remove('open'); scrim.classList.remove('open'); }
+document.getElementById('cartBtn').addEventListener('click', openDrawer);
+document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+scrim.addEventListener('click', closeDrawer);
+
+function renderCart(){
+  const ids = Object.keys(state.cart).filter(id => state.cart[id] > 0);
+  const badge = document.getElementById('cartBadge');
+  const count = ids.reduce((sum, id) => sum + state.cart[id], 0);
+  badge.hidden = count === 0;
+  badge.textContent = count;
+
+  const container = document.getElementById('drawerItems');
+  if(!ids.length){
+    container.innerHTML = `<div class="drawer-empty">${t('cart.empty')}<br>${t('cart.emptySub')}</div>`;
+    document.getElementById('subtotal').textContent = fmt(0);
+    return;
+  }
+  container.innerHTML = "";
+  let subtotal = 0;
+  ids.forEach(id => {
+    const p = products.find(p => p.id == id);
+    const qty = state.cart[id];
+    subtotal += p.price * qty;
+    const row = document.createElement('div');
+    row.className = 'drawer-item';
+    row.innerHTML = `
+      <div class="thumb">${p.icon}</div>
+      <div class="info">
+        <p class="name">${productText(p,'name')}</p>
+        <p class="meta">${currentLang==='bn'?bnDigits(qty):qty} × ${fmt(p.price)}</p>
+        <button class="remove" data-id="${id}">${t('cart.remove')}</button>
+      </div>
+      <div class="line-price">${fmt(p.price * qty)}</div>
+    `;
+    container.appendChild(row);
+  });
+  document.getElementById('subtotal').textContent = fmt(subtotal);
+
+  container.querySelectorAll('.remove').forEach(b => {
+    b.addEventListener('click', () => {
+      delete state.cart[b.dataset.id];
+      renderCart();
+    });
+  });
+}
+
+function setLang(lang){
+  currentLang = lang === 'bn' ? 'bn' : 'en';
+  document.documentElement.setAttribute('lang',currentLang);
+  document.documentElement.setAttribute('data-lang',currentLang);
+  document.title = t('title');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent=t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{ el.setAttribute('aria-label',t(el.dataset.i18nAria)); });
+  document.querySelectorAll('[data-setlang]').forEach(btn=>btn.classList.toggle('active',btn.dataset.setlang===currentLang));
+  localStorage.setItem('qi-lang',currentLang);
+  render();
+  renderCart();
+}
+document.querySelectorAll('[data-setlang]').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.setlang)));
+setLang(currentLang);
+</script>
+</body>
+</html>

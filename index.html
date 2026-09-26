@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qariatul Ihsan — قرية الإحسان | A Living Community</title>
+<meta name="description" content="A living community rooted in faith, nature and self-sustained living.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#315C2B;--green:#4F7D3A;--leaf:#739B52;--cream:#F5F1E6;--ivory:#FAF9F3;--brown:#765B3E;--gold:#B69A5A;--charcoal:#2E312C;--sage:#DDE6D4;--font-display:'Fraunces',serif;--font-body:'Inter',sans-serif;--font-display-bn:'Noto Serif Bengali',serif;--font-body-bn:'Noto Sans Bengali',sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ivory);color:var(--charcoal);font-family:var(--font-body);font-weight:400;line-height:1.6;overflow-x:hidden;}
+html[data-lang="bn"] body{font-family:var(--font-body-bn);}
+h1,h2,h3,h4,.font-display{font-family:var(--font-display);font-weight:500;letter-spacing:-0.01em;}
+html[data-lang="bn"] h1,html[data-lang="bn"] h2,html[data-lang="bn"] h3,html[data-lang="bn"] h4,html[data-lang="bn"] .font-display{font-family:var(--font-display-bn);}
+.eyebrow{font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);font-weight:600;}
+html[data-lang="bn"] .eyebrow{letter-spacing:0.02em;text-transform:none;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+@media(min-width:768px){.container{padding:0 48px;}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,.68,0,1.01),transform .9s cubic-bezier(.22,.68,0,1.01);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.22s;}
+.reveal-delay-3{transition-delay:.34s;}
+.reveal-delay-4{transition-delay:.46s;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important;}*{animation:none!important;}}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s ease,box-shadow .4s ease,padding .4s ease;padding:20px 0;}
+.navbar.scrolled{background:rgba(250,249,243,0.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(46,49,44,0.08);padding:12px 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-logo img{height:42px;width:auto;}
+.nav-logo-text{font-family:var(--font-display);font-size:1.05rem;color:#fff;letter-spacing:0.01em;transition:color .4s ease;text-shadow:0 1px 6px rgba(0,0,0,0.35);}
+.navbar.scrolled .nav-logo-text{color:var(--forest);text-shadow:none;}
+.nav-links{display:none;gap:32px;align-items:center;}
+@media(min-width:1024px){.nav-links{display:flex;}}
+.nav-link{font-size:0.92rem;color:rgba(255,255,255,0.95);position:relative;padding:4px 0;opacity:0.92;transition:opacity .2s,color .4s ease;text-shadow:0 1px 6px rgba(0,0,0,0.35);}
+.nav-link:hover{opacity:1;}
+.nav-link::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:#fff;transition:width .3s ease,background .4s ease;}
+.nav-link:hover::after{width:100%;}
+.navbar.scrolled .nav-link{color:var(--charcoal);text-shadow:none;}
+.navbar.scrolled .nav-link::after{background:var(--forest);}
+.mobile-toggle span{background:#fff;transition:background .4s ease;}
+.navbar.scrolled .mobile-toggle span{background:var(--charcoal);}
+.lang-switch{display:flex;align-items:center;gap:6px;font-size:0.85rem;border:1px solid var(--sage);border-radius:999px;padding:5px 6px;background:var(--ivory);}
+.lang-btn{padding:5px 12px;border-radius:999px;font-size:0.82rem;color:var(--charcoal);opacity:0.55;transition:all .25s ease;}
+.lang-btn.active{background:var(--forest);color:var(--ivory);opacity:1;}
+.mobile-toggle{display:flex;flex-direction:column;gap:5px;width:26px;}
+@media(min-width:1024px){.mobile-toggle{display:none;}}
+.mobile-toggle span{height:1.5px;width:100%;transition:.3s;}
+.mobile-menu{position:fixed;inset:0;background:var(--ivory);z-index:99;display:flex;flex-direction:column;padding:100px 32px 40px;gap:22px;overflow-y:auto;transform:translateY(-100%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .5s cubic-bezier(.22,.68,0,1.01),opacity .4s ease,visibility 0s linear .5s;}
+.mobile-menu.open{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto;transition:transform .5s cubic-bezier(.22,.68,0,1.01),opacity .4s ease,visibility 0s linear 0s;}
+.mobile-menu a{font-family:var(--font-display);font-size:1.7rem;color:var(--forest);}
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--charcoal);}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;animation:heroZoom 26s ease-in-out infinite alternate;}
+@keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
+.hero-content{position:relative;z-index:2;width:100%;padding:0 24px 90px;color:var(--ivory);}
+@media(min-width:768px){.hero-content{padding:0 48px 110px;}}
+.hero-content .container{max-width:1240px;margin:0 auto;}
+.hero-eyebrow{font-size:0.8rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:22px;opacity:0.9;}
+html[data-lang="bn"] .hero-eyebrow{letter-spacing:0.03em;text-transform:none;}
+.hero h1{font-size:clamp(3rem,9vw,6.4rem);color:#fff;line-height:0.98;margin-bottom:22px;}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.4rem);max-width:620px;color:var(--sage);font-weight:300;margin-bottom:40px;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;font-size:0.92rem;font-weight:500;transition:all .3s cubic-bezier(.22,.68,0,1.01);}
+.btn-primary{background:var(--gold);color:var(--charcoal);}
+.btn-primary:hover{background:#c7ab68;transform:translateY(-2px);}
+.btn-outline{border:1px solid rgba(255,255,255,0.5);color:#fff;}
+.btn-outline:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px);}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--sage);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;opacity:0.85;}
+.scroll-cue .line{width:1px;height:34px;background:linear-gradient(var(--sage),transparent);animation:scrollLine 1.8s ease-in-out infinite;}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+.section{position:relative;padding:110px 0;}
+.section-heading{max-width:680px;margin-bottom:56px;}
+.section-heading h2{font-size:clamp(2.1rem,4.2vw,3.2rem);color:var(--forest);margin:14px 0 18px;}
+.section-heading p{font-size:1.05rem;color:#5a5d55;max-width:560px;}
+.bg-cream{background:var(--cream);}
+.bg-forest{background:var(--forest);color:var(--ivory);}
+.bg-forest .eyebrow{color:var(--sage);}
+.bg-forest .section-heading h2{color:#fff;}
+.bg-forest .section-heading p{color:var(--sage);}
+.ph{position:relative;overflow:hidden;border-radius:22px;background:linear-gradient(135deg,var(--sage),var(--leaf) 60%,var(--forest));background-size:cover;background-position:center;display:flex;align-items:flex-end;color:#fff;isolation:isolate;}
+.ph::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,0.18),transparent 45%),radial-gradient(circle at 80% 80%,rgba(0,0,0,0.18),transparent 50%);}
+.ph-label{position:relative;z-index:1;padding:18px 20px;font-size:0.78rem;letter-spacing:0.05em;background:linear-gradient(0deg,rgba(0,0,0,0.5),transparent);width:100%;}
+.ph-tone-1{background-color:#4F7D3A;}
+.ph-tone-2{background-color:#B69A5A;}
+.ph-tone-3{background-color:#4F7D3A;}
+.ph-tone-4{background:linear-gradient(135deg,#e9e2cf,#9fbfe0 40%,#3f6a8a);}
+.ph-tone-5{background-color:#c9a15c;}
+.grid-6{display:grid;grid-template-columns:repeat(1,1fr);gap:22px;}
+@media(min-width:640px){.grid-6{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1024px){.grid-6{grid-template-columns:repeat(3,1fr);}}
+.pillar-card{background:var(--ivory);border:1px solid rgba(49,92,43,0.12);border-radius:20px;padding:32px 26px;transition:transform .35s cubic-bezier(.22,.68,0,1.01),box-shadow .35s ease,border-color .35s ease;}
+.pillar-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -20px rgba(49,92,43,0.35);border-color:rgba(49,92,43,0.25);}
+.pillar-icon{width:52px;height:52px;border-radius:14px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--forest);}
+.pillar-card h3{font-size:1.18rem;color:var(--forest);margin-bottom:10px;}
+.pillar-card p{font-size:0.92rem;color:#5a5d55;}
+.tt-wrap{display:grid;grid-template-columns:1fr;gap:60px;}
+@media(min-width:960px){.tt-wrap{grid-template-columns:1fr 1fr;}}
+.tt-col-label{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.tt-dot{width:10px;height:10px;border-radius:50%;}
+.tt-today .tt-dot{background:var(--gold);}
+.tt-tomorrow .tt-dot{background:var(--forest);}
+.tt-list{display:flex;flex-direction:column;gap:14px;}
+.tt-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:var(--ivory);border:1px solid rgba(49,92,43,0.1);font-size:0.95rem;}
+.tt-tomorrow .tt-item{background:transparent;border:1px dashed rgba(49,92,43,0.35);color:#4c5049;}
+.tt-emoji{font-size:1.2rem;}
+.explorer{position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#e7dfc4 0%,#c7d9b0 35%,#7fa562 65%,#3d6330 100%);aspect-ratio:16/10;}
+.explorer::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 65% 70%,rgba(87,140,190,0.35),transparent 30%),repeating-linear-gradient(100deg,rgba(255,255,255,0.05) 0 2px,transparent 2px 26px);}
+.explorer-point{position:absolute;width:46px;height:46px;border-radius:50%;background:rgba(250,249,243,0.92);display:flex;align-items:center;justify-content:center;font-size:1.25rem;box-shadow:0 6px 18px rgba(0,0,0,0.25);transform:translate(-50%,-50%);transition:transform .3s ease;z-index:3;}
+.explorer-point::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(250,249,243,0.6);animation:pulseRing 2.6s ease-out infinite;}
+@keyframes pulseRing{0%{transform:scale(0.85);opacity:0.9;}100%{transform:scale(1.7);opacity:0;}}
+.explorer-point:hover{transform:translate(-50%,-50%) scale(1.12);}
+.explorer-card{position:absolute;max-width:230px;background:var(--ivory);border-radius:16px;padding:16px 18px;box-shadow:0 20px 50px -18px rgba(0,0,0,0.4);z-index:5;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease;}
+.explorer-card.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+.explorer-card h4{font-size:0.98rem;color:var(--forest);margin-bottom:6px;}
+.explorer-card p{font-size:0.82rem;color:#575b52;}
+.explorer-hint{text-align:center;font-size:0.85rem;color:#5a5d55;margin-top:18px;}
+.cycle{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0;margin-top:50px;}
+.cycle-step{display:flex;flex-direction:column;align-items:center;text-align:center;width:130px;}
+.cycle-circle{width:74px;height:74px;border-radius:50%;background:var(--forest);color:var(--ivory);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:12px;}
+.cycle-step span{font-size:0.85rem;color:var(--charcoal);}
+.cycle-arrow{color:var(--leaf);font-size:1.3rem;padding:0 6px;}
+.river-wrap{position:relative;border-radius:28px;overflow:hidden;min-height:420px;display:flex;align-items:center;background-size:cover;background-position:center;}
+.river-water{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(94,150,190,0.25) 55%,rgba(52,98,138,0.4) 100%);}
+.river-wave{position:absolute;bottom:0;left:0;width:200%;height:120px;background:repeating-radial-gradient(ellipse at center,rgba(255,255,255,0.08) 0,rgba(255,255,255,0.08) 2px,transparent 3px,transparent 40px);animation:waveMove 9s linear infinite;}
+@keyframes waveMove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.river-content{position:relative;z-index:2;color:#fff;padding:60px 40px;max-width:560px;}
+.river-content h2{color:#fff;}
+.river-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.river-tag{padding:8px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.35);font-size:0.82rem;}
+.grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(min-width:768px){.grid-4{grid-template-columns:repeat(4,1fr);}}
+  .animal-showcase{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:16/9;margin:0;box-shadow:0 18px 46px rgba(23,52,27,0.14);background:var(--forest);}
+  .animal-showcase img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+  .animal-showcase::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,30,14,0.72) 0%,rgba(9,30,14,0.08) 46%,transparent 68%);pointer-events:none;}
+  .animal-showcase:hover img{transform:scale(1.018);}
+  .animal-showcase figcaption{position:absolute;z-index:1;left:clamp(18px,3vw,34px);right:clamp(18px,3vw,34px);bottom:clamp(16px,3vw,30px);color:#fff;font-family:var(--font-display);font-size:clamp(1.05rem,2vw,1.45rem);letter-spacing:.02em;}
+  @media(max-width:640px){.animal-showcase{aspect-ratio:4/3;}.animal-showcase img{object-position:42% center;}}
+.future-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+@media(min-width:768px){.future-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1200px){.future-grid{grid-template-columns:repeat(3,1fr);}}
+.future-card{border-radius:20px;padding:30px 26px;background:rgba(250,249,243,0.06);border:1px solid rgba(250,249,243,0.14);transition:background .3s,transform .3s;}
+.future-card:hover{background:rgba(250,249,243,0.1);transform:translateY(-5px);}
+.future-card .num{font-family:var(--font-display);font-size:2.2rem;color:var(--gold);opacity:0.6;margin-bottom:12px;}
+.future-card h3{color:#fff;font-size:1.2rem;margin-bottom:10px;}
+.future-card p{color:var(--sage);font-size:0.92rem;}
+.philosophy{position:relative;text-align:center;padding:130px 0;}
+.philosophy-pattern{position:absolute;inset:0;opacity:0.5;pointer-events:none;background-image:radial-gradient(circle,rgba(49,92,43,0.06) 1px,transparent 1px);background-size:26px 26px;}
+.philosophy-quote{font-family:var(--font-display);font-style:italic;font-size:clamp(1.5rem,3.6vw,2.5rem);max-width:800px;margin:0 auto 30px;color:var(--forest);line-height:1.35;}
+html[data-lang="bn"] .philosophy-quote{font-style:normal;}
+.philosophy-values{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:44px;}
+.philosophy-value{padding:10px 20px;border-radius:999px;border:1px solid var(--sage);font-size:0.86rem;color:var(--brown);background:var(--ivory);}
+.scripture{margin-top:22px;max-width:620px;font-family:var(--font-display);font-style:italic;color:var(--forest);font-size:0.98rem;line-height:1.55;}
+.scripture .src{display:inline;margin-left:4px;font-family:var(--font-body);font-style:normal;font-size:0.74rem;letter-spacing:0.03em;color:var(--gold);white-space:nowrap;}
+html[data-lang="bn"] .scripture{font-style:normal;font-family:var(--font-display-bn);}
+html[data-lang="bn"] .scripture .src{font-family:var(--font-body-bn);letter-spacing:0.01em;}
+.hero-scripture{margin:-14px 0 34px;max-width:620px;font-family:var(--font-display);font-style:italic;color:var(--sage);font-size:1.05rem;line-height:1.5;opacity:0.95;}
+.hero-scripture .src{display:inline;margin-left:4px;font-family:var(--font-body);font-style:normal;font-size:0.72rem;letter-spacing:0.04em;color:var(--gold);opacity:0.95;white-space:nowrap;}
+html[data-lang="bn"] .hero-scripture{font-style:normal;font-family:var(--font-display-bn);}
+.store-split{display:grid;grid-template-columns:1fr;gap:24px;}
+@media(min-width:860px){.store-split{grid-template-columns:1fr 1fr;}}
+.store-card{position:relative;border-radius:24px;overflow:hidden;min-height:320px;display:flex;align-items:flex-end;padding:34px;color:#fff;}
+.store-card h3{font-size:1.7rem;color:#fff;margin-bottom:10px;}
+.store-card p{color:var(--sage);max-width:340px;margin-bottom:18px;font-size:0.92rem;}
+.store-card .btn{width:fit-content;}
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(min-width:768px){.product-grid{grid-template-columns:repeat(4,1fr);}}
+.product-card{background:var(--ivory);border:1px solid rgba(49,92,43,0.1);border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s;}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -22px rgba(49,92,43,0.4);}
+.product-img{aspect-ratio:1/1;}
+.product-body{padding:16px 16px 20px;}
+.product-cat{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--leaf);margin-bottom:6px;}
+html[data-lang="bn"] .product-cat{text-transform:none;letter-spacing:0.02em;}
+.product-body h4{font-size:0.98rem;color:var(--forest);margin-bottom:6px;}
+.product-body p{font-size:0.82rem;color:#5a5d55;margin-bottom:14px;}
+.product-foot{display:flex;align-items:center;justify-content:space-between;}
+.product-price{font-size:0.88rem;color:var(--brown);font-weight:500;}
+.product-view{font-size:0.78rem;color:var(--forest);border-bottom:1px solid var(--forest);padding-bottom:2px;}
+.journal-grid{display:grid;grid-template-columns:1fr;gap:26px;}
+@media(min-width:768px){.journal-grid{grid-template-columns:repeat(3,1fr);}}
+.journal-card{border-radius:20px;overflow:hidden;background:var(--ivory);border:1px solid rgba(49,92,43,0.1);}
+.journal-img{aspect-ratio:16/10;}
+.journal-body{padding:22px 22px 26px;}
+.journal-date{font-size:0.75rem;color:var(--leaf);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;}
+html[data-lang="bn"] .journal-date{text-transform:none;}
+.journal-body h4{font-size:1.08rem;color:var(--forest);margin-bottom:8px;line-height:1.35;}
+.journal-body p{font-size:0.88rem;color:#5a5d55;}
+.gallery-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+.gfilter{padding:9px 18px;border-radius:999px;border:1px solid var(--sage);font-size:0.82rem;color:var(--charcoal);transition:all .25s;}
+.gfilter.active{background:var(--forest);border-color:var(--forest);color:#fff;}
+.gallery-grid{columns:2;column-gap:16px;}
+@media(min-width:768px){.gallery-grid{columns:4;}}
+.gallery-item{break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;cursor:pointer;position:relative;}
+.gallery-item img,.gallery-item .ph{width:100%;}
+.gallery-item img{display:block;height:auto;object-fit:contain;}
+.lightbox{position:fixed;inset:0;background:rgba(20,20,16,0.92);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;}
+.lightbox.open{display:flex;}
+.lightbox-close{position:absolute;top:26px;right:30px;color:#fff;font-size:1.6rem;}
+.lightbox-inner{max-width:calc(100vw - 80px);max-height:calc(100vh - 80px);width:auto;aspect-ratio:auto;border-radius:18px;overflow:hidden;background:transparent;display:flex;align-items:center;justify-content:center;}
+.lightbox-inner img{display:block;max-width:100%;max-height:calc(100vh - 80px);width:auto;height:auto;object-fit:contain;border-radius:18px;}
+.timeline{position:relative;padding-left:34px;}
+.timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--sage),var(--forest));}
+.timeline-item{position:relative;padding-bottom:52px;}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-dot{position:absolute;left:-34px;top:2px;width:14px;height:14px;border-radius:50%;background:var(--forest);border:3px solid var(--ivory);box-shadow:0 0 0 2px var(--forest);}
+.timeline-item h3{color:var(--forest);font-size:1.25rem;margin-bottom:8px;}
+.timeline-item p{color:#5a5d55;font-size:0.92rem;max-width:520px;}
+.timeline-tag{display:inline-block;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+html[data-lang="bn"] .timeline-tag{text-transform:none;}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:40px;}
+@media(min-width:960px){.contact-grid{grid-template-columns:1fr 1fr;}}
+.contact-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(49,92,43,0.12);}
+.contact-icon{width:40px;height:40px;border-radius:10px;background:var(--sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--forest);}
+.contact-item h4{font-size:0.95rem;color:var(--forest);margin-bottom:4px;}
+.contact-item p{font-size:0.9rem;color:#5a5d55;}
+.map-placeholder{border-radius:22px;min-height:340px;background:repeating-linear-gradient(45deg,#e7e2d2,#e7e2d2 10px,#ddd7c4 10px,#ddd7c4 20px);display:flex;align-items:center;justify-content:center;color:#8a8368;font-size:0.9rem;border:1px dashed #c9c1a4;}
+footer{background:var(--charcoal);color:var(--sage);padding:70px 0 30px;position:relative;overflow:hidden;}
+.footer-top{display:grid;grid-template-columns:1fr;gap:40px;margin-bottom:50px;}
+@media(min-width:860px){.footer-top{grid-template-columns:1.4fr 1fr 1fr 1fr;}}
+.footer-brand img{height:40px;margin-bottom:16px;}
+.footer-brand p{font-size:0.88rem;color:var(--sage);opacity:0.75;max-width:280px;}
+.footer-col h5{font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:18px;}
+html[data-lang="bn"] .footer-col h5{text-transform:none;}
+.footer-col a{display:block;font-size:0.88rem;color:var(--sage);opacity:0.8;margin-bottom:12px;transition:opacity .2s;}
+.footer-col a:hover{opacity:1;}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(250,249,243,0.12);font-size:0.8rem;color:rgba(221,230,212,0.55);}
+.two-col{display:grid;grid-template-columns:1fr;gap:50px;align-items:center;}
+@media(min-width:960px){.two-col{grid-template-columns:1fr 1fr;}}
+</style>
+<style>
+/* Local project photography: every visible placement uses a distinct asset. */
+.hero-bg{
+  background-image:
+    radial-gradient(ellipse at 30% 18%,rgba(180,160,90,0.14),transparent 55%),
+    linear-gradient(160deg,#496d3f 0%,#2f5c2e 52%,#19351e 100%) !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+#explorer{
+  background-image:
+    radial-gradient(ellipse at 80% 15%,rgba(184,161,92,0.16),transparent 42%),
+    linear-gradient(145deg,#355c37 0%,#234a2d 56%,#183722 100%) !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+#agriculture .two-col > .reveal:nth-child(2) > .ph:nth-child(1){
+  background-image:url("WhatsApp Image 2026-08-21 at 3.45.14 PM.jpeg") !important;
+  background-size:cover !important;
+  background-position:center 48% !important;
+}
+#agriculture .two-col > .reveal:nth-child(2) > .ph:nth-child(2){
+  background-image:url("WhatsApp Image 2026-08-21 at 3.44.15 PM (1).jpeg") !important;
+  background-size:cover !important;
+  background-position:center 48% !important;
+}
+#agriculture .two-col > .reveal:nth-child(2) > .ph:nth-child(3){
+  background-image:url("WhatsApp Image 2026-08-21 at 3.44.41 PM (1).jpeg") !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+#agriculture .two-col > .reveal:nth-child(2) > .ph:nth-child(4){
+  background-image:url("WhatsApp Image 2026-08-21 at 3.44.18 PM.jpeg") !important;
+  background-size:cover !important;
+  background-position:center 52% !important;
+}
+.river-wrap{
+  background-image:
+    linear-gradient(90deg,rgba(15,35,18,0.48) 0%,rgba(15,35,18,0.22) 58%,rgba(15,35,18,0.08) 100%),
+    url("pond-landscape-enhanced.webp") !important;
+  background-size:cover !important;
+  background-position:center 58% !important;
+}
+@media(max-width:767px){
+  .river-wrap{background-position:68% 58% !important;}
+}
+.store-card:first-child{
+  background-image:
+    linear-gradient(160deg,rgba(35,75,34,0.12),rgba(20,36,20,0.68)),
+    url("WhatsApp Image 2026-08-21 at 3.44.10 PM (1).jpeg") !important;
+  background-size:cover !important;
+  background-position:center 46% !important;
+}
+.gallery-item:focus-visible{outline:3px solid var(--gold);outline-offset:4px;}
+#products .product-card:nth-child(1) .product-img{
+  background-image:url("ai-seasonal-vegetables.webp") !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+#products .product-card:nth-child(2) .product-img{
+  background-image:url("ai-orchard-fruits.webp") !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+#products .product-card:nth-child(3) .product-img{
+  background-image:url("ai-rice-atta.webp") !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+#journal .journal-card:nth-child(1) .journal-img{
+  background-image:url("a-day-at-qariatul-ihsan.webp") !important;
+  background-size:cover !important;
+  background-position:center 46% !important;
+}
+#journal .journal-card:nth-child(2) .journal-img{
+  background-image:url("ai-okra-baby-corn.webp") !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+#journal .journal-card:nth-child(3) .journal-img{
+  background-image:url("WhatsApp Image 2026-08-21 at 3.44.10 PM.jpeg") !important;
+  background-size:cover !important;
+  background-position:center 48% !important;
+}
+.animal-card{background-size:cover !important;background-position:center !important;}
+.grid-4 .animal-card:nth-child(1){background-image:linear-gradient(180deg,rgba(18,38,18,0.04),rgba(18,38,18,0.64)),url("generated-goat.webp") !important;background-position:center 52% !important;}
+.grid-4 .animal-card:nth-child(2){background-image:linear-gradient(180deg,rgba(18,38,18,0.04),rgba(18,38,18,0.64)),url("generated-chickens.webp") !important;background-position:center 48% !important;}
+.grid-4 .animal-card:nth-child(3){background-image:linear-gradient(180deg,rgba(18,38,18,0.04),rgba(18,38,18,0.64)),url("generated-ducks.webp") !important;background-position:center 52% !important;}
+.grid-4 .animal-card:nth-child(4){background-image:linear-gradient(180deg,rgba(18,38,18,0.04),rgba(18,38,18,0.64)),url("generated-fish-pond.webp") !important;background-position:center 58% !important;}
+.store-split .store-card:nth-child(2){background-image:linear-gradient(160deg,rgba(28,45,25,0.08),rgba(20,28,18,0.7)),url("generated-handloom.webp") !important;background-size:cover !important;background-position:center !important;}
+#products .product-card:nth-child(3) .product-img{background-image:url("ai-rice-atta.webp") !important;background-size:cover !important;background-position:center !important;}
+#products .product-card:nth-child(4) .product-img{background-image:url("product-mustard-oil.webp") !important;background-size:cover !important;background-position:center !important;}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="nav-logo">
+      <img src="data:image/webp;base64,UklGRsYMAABXRUJQVlA4ILoMAAAwNQCdASqgAKAAPlEkj0WjoiETakzoOAUEs7dur0/hi0NUf3CWScmeiDb689TZUFfBfUvDXw1+Pfbv1mnxf5F9ffwf5n+yn+U8Cfhp/VeoF+Rfyn+6fl1/cPUZ/d+4H1T+vf6X1AvVb5z/nf6z+8P949Kz+N9BPqr/mfcA/VH/R/mf/Zuda839gD+X/1X/vf4f8jPpl/kv/L/ivyc9oP6D/eP+r/kPgJ/lv9Z/3v9+/Jr5vvYn+4Xsw/uCUTJLIJn0z6ZoXEpP7iMHRDKF6z8h+py6DjcGEaTPAPKc+33W/eqFDqhkWioOI4HiVInI6o6QA0RQp/9V3L1fQDY6ziig9MZSfl8lc3MWuItC+tVNRK7Y71zIewneYcZZgxBtlAw9IaE+y/KV62Q2JyLAW8KFjAj7rOkd/p0ConfF6+AiIE4GGRuehPGNHT9SvxJU0WJtPZTBEgH9ppPjA4AejiX/u1sHyy7+ANhn4LuZVg71cjcWdB9ESM62lruhayPdKSkkECtAvh6jTCDaOi0POXZjSes4Md/n3XvytnUTMYpVf6OmLISCqvq4Vy00YKKSC1XYAAD+/L1v/nDp7sTR6qz8MAGU3ZlplG+5TkDzh0hRZjh/vdT2gCv7uV+0KnSwqLb5rO5Zcj5koaJvIJeLBH6IcHgAVRcOrnrBsyfgH7tjS7FmNMRcbQiv4nk8NCKbXIqVPnVVAwJUtd+Sa9NKUJl3y3uKjnHHbvTmSw1C6gStl5itOtfXHASJWqmRKtK5rYPfd/4Za/stUfmfHcFbF65WS0c/m8Dsdin4KvDKoCmnPGkTcVNFs2XyOEyIv/Xs6HWSojANlvgLQvpBFRjiCv/O6fqR0Ijl8WPeI+KRGUPq1j/5IeKC/Lcns+nRJx6ovuAKkLu+Qycm1GJp5yIL67gkhOxgeGvM6shHp8k41NH9XufsHA9HEtPOyfq9L+7jQPsZt27YOe28d111H6LePGwekcDz2pLrkZ89LyDPwZR9MhR3bQVl0e3BTDgea4SQ0iW7oh0QtKsKyYaA91qwxbXoRmdyIN2VQqlo54nG4Z+PtiTGvs6kaOCZFY5QmzWvcLbhxMauW4EJk0c/JIJuJjOuzAwyOxEBCXKdfzVRiPFhVZ6+dfS7pfzCW7mxSQY17zCSAEk6XtFqdJUWcqwDOZuwB+Is9Ny3fJYWwZthPklBjNDiMPIV/XAmzfrA93y5thJADm6m475JjOK9Kr/inBJJmeBpg6jhekL44xlMXEalOi/O8jw/0wc5yFAij/plxcWjROhh1X/nvh679PbhIRfsM7TwFwW74OBXt3uEiwRgZb0LMHgchyORKF0KoOqVhxsUMlJKnebqWgJ+EnZPqb9xu384Myts+cjSN4SpGMHVTkHujPMgrY0Zj9WQmwVO0foZyvasRUwJC5EYtc003/VWWATSkvzHqpF+ON/1feS8nUWo+SyBY8uL3ArY7eGuk9tYdYLr6BqQmeP19cU6sE411nR0iS2W8WW5ZMNxw/DXfThN/xwHNLPRJaDJvwmciPyXs1oVfPEw8dk0otuYAfDO14hqfpiax8MjWT/zjX4rdg/l6aZCA96WLbUZXYnK2Wm66B7DHpYjdO4QAU6itUoDWtmYEs9l+okICuIh/9/FFY7HfC3HZVk7CfmAWZl0RYgJScnuf6/TD8zJA/bT10lIQLQb0zlsl5uMlvzq1Hi32mgGdduhav1mzXfCvUdii7F7L/h9GYyYtDb3g22pyHtumvvLuhuyYUSet/PjHlgWzAaWnTI0OFcn99EJ5oCPDweTkUpEqEEJdC++VrtFTfV22k8qGYEst5OYMD2+gwOhkUmHKZI3xEHKL2N9mygIThJ86yRMzRJHxKyBpHB+Yb+sFP6h/Sl8c88ZfYIBnNedxQCruyDuo6/T1eWcScy4R56iGyErdrADjfPV8U0YnhTx2Ake0XpyShByFgH2kfglAnudw5H54N5Xae4HKAueWvLDqLwWYqpUVIn2rGWz6Ye5X99aPSi01mJ7jXtTNjkjg7jII+tBrnez5GzciAvh8DJhh1Z7OBxD8gfQvWXzrBgkliELtvYq23crT0yY9WQi5fmBQ06utQFrRKiHCclzKxrA+d0PdLOf5LcCX9rAP2oYBsbkshw+01WPODduxyQ3CAXqKVKhoO98eo9TPZ1QBl3i3rVcT+yaVBa7KGFEZFlwKgB8iosjj2Lnyi6Wle7K0eMq8zXZ82nbZMKVTyKLOi1bzakg3LcQzZWCbknwjqryepHZgndZVFjIYz+u8rlJ+5smIBXNMZR0I5FcV1Jdfz7tiWbEezTzO1w05H39abVWUtVJaNzqMkU8GR2CNm6pNNyIOq+VTXlC6a5KFAD9xRaVCf+Rz9VOcDiYH4PDDObDD4Du0TFp1kGGjaAgH+UnADbHTTDtt3l5V+VGAx5dCBmsJlaYrM9Ne3UYcMSsXHjpRh9RvOT7gLJoZLz/b5qBVQKEjl9WPQvaeD9vaf9IJtX3WQ58V+8w/S4HVGco3Dh8ksVwFYTMrjLcrMSCve+BzYSPaxb6aI9MABfsPFQI/UeLyrXd92HwOTWHgfWVbTmCakOCYI3jYo/pW93OVn2UQqTvqwb3I3r2QW8tQ8mjc5t3ehKUULYtyc2qu7y4NxRnWVmvywl9i04aRlyh1jCFuqP3w+zQ5e2XXKGuuxMKTuR95N6zGrgH9OdBHfxtISgzCuOEbqHYyV3uVb/HQJwe3RywYMHPOeQcY0Puj8u88kDnOlpCWgqKPtQiN0CS2Se4P8GVtBaEXwbqleG0NZ/HT1ivi46zp5qIeyjQ8N2c44gEn1Rg+hr4JkFPDSY2E9m3u5yAlJ5ilUtSY4WEMrhzndiPe8P4XvfSrIp78GkeWFSSOd4HDaHMvc97GET4HFzPDEL015+yuY08qb7eCft6z/bA2bR9+RT9gek5pUV2daleEOEH28XD3G5r1uQkVUvLAaZLFmchlhkjzmi9Slhy7kqC63vGAhkFrvCc/YG8cxfNb3z6V1cEUO8M/vxNs9bkf1J3ZGLRUWVwm5Bf1sw2komVRdiWSggIIL4NchgU8hIhdmweJaBo2D0U0qbz2VByhpWoNvepGU74j+TxGZzBe6q2Fh20hHg5EgbSY4ifEWBfwnjKEAAvX/fgeUX6nkI8Lk8KkNVhUDfTQ9xZddcr6flxKs8on1ubZfkrFpmNNN0kZIjn5sJWrOOObxnI8XSJjPwFw0aoImK/2xyintYnYnIvDVbwXbXlVxxfYwq2hGn5fPaA1qNXJAlPLyqLPINaRFU8894D73USHx3MjUNyYyIdvPeSMNndI77LiM1UhfZKsvsO83m/6nYKiN9isrXeXBp0cy1j9nkLzLfZ2X1nTC3/aTSKrPUvlUjVyr2DBnyzwwAp5phGh3xR1/4S2tzal7Xuj/4HtgRzfDfjQVw+81S3fI+9h7dxUFgNqkNVkHcPqBsub6XuBS4X0JU0iOuWgfqayvmGop9axk4CPYnRIx2yyfeZYZyajQZtVjUH0kqY1P1mu0U9f1Gf1MD3YHBXSanT9DKSQs1znVG5YCjFiAZnbKcPugvMnobUym+P0nYuG7uCPCsVQqD+Pf9kvMJPziGuPBzEEvL+bNRBi+w/3dkBWFO572eCwa9d1BungKPzRcyg+2820rttFvXEg2q/S8y5UzuljTFN+xZdYISYWj4BNTFxv6+8TE+EScruzA7H2JzoZPTnj3/trT7aO3H+f1BxQIRw6Vabv14C6k6asrzIuSt7HMiApaNDaTHKb/2+yU7zmOLlmS++4hb1aKfCG/pe2Rgpho81onsqsWWtgmP8+/ke7IzyQBwbBmD6y2kStylyiRTkutf5HBlug0Hnj2RI1Fvl1Yv/U2sUeik7OqQ6+twOq2Lanhvh83JY+61fWb1wIXp5FPpH83OYJfSv5yL8TbFAnyXNe8XlyJsdoMWdraR+F7YszqpiBHlFzpmL9b//4u67k32iqiK9g8Gcooogrd9BXGmup952LMaO4S7Ct2u12G2tkTDD0TsWfRZZkfcyL5w1mUQv4Bgn0Ohw3xPNVsyFntvElSmb0vUiHizWuNZb5LS2LIV1YKWu6PrsAM1/OXj/ZcxwvEQJ1fdj8XO8fGgPrfJiTl6QYA2qQTPXv/+IAaoOn6cw8uxCc8puOYAT6v7FclHijFhD1P2EBTqf+okAJ5iJ98ZA84FIprRd6MUSNWUdn80dG8WaWaP/YW8Gt/fnH+uUNz8SECFPdyIW09NY7wCyY2A9lUABN5miyp9KKy3zQCwMLEkSC2yfm/CnNktGrLfVV1Imm++mJ0Oiu9gwOMD3WCroz+d59WA2fJHcACTsAAA=" alt="Qariatul Ihsan logo" style="height:42px;width:auto;">
+      <span class="nav-logo-text" data-i18n="brand.name">Qariatul Ihsan</span>
+    </a>
+    <div class="nav-links">
+      <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
+      <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+      <a href="#land" class="nav-link" data-i18n="nav.land">Our Land</a>
+      <a href="#agriculture" class="nav-link" data-i18n="nav.agri">Agriculture</a>
+      <a href="#community" class="nav-link" data-i18n="nav.community">Community</a>
+      <a href="html/store.html" class="nav-link" data-i18n="nav.store">Store</a>
+      <a href="#journal" class="nav-link" data-i18n="nav.stories">Stories</a>
+      <a href="#gallery" class="nav-link" data-i18n="nav.gallery">Gallery</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-setlang="en">English</button>
+        <button class="lang-btn" data-setlang="bn">বাংলা</button>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" data-i18n="nav.home">Home</a>
+  <a href="#about" data-i18n="nav.about">About</a>
+  <a href="#land" data-i18n="nav.land">Our Land</a>
+  <a href="#agriculture" data-i18n="nav.agri">Agriculture</a>
+  <a href="#community" data-i18n="nav.community">Community</a>
+  <a href="html/store.html" data-i18n="nav.store">Store</a>
+  <a href="#journal" data-i18n="nav.stories">Stories</a>
+  <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+  <a href="#contact" data-i18n="nav.contact">Contact</a>
+</div>
+<header class="hero" id="home">
+  <div class="hero-bg" style="background-image:radial-gradient(ellipse at 30% 20%,rgba(180,160,90,0.18),transparent 55%),linear-gradient(180deg,rgba(20,26,16,0.25) 0%,rgba(20,26,16,0.55) 68%,rgba(20,26,16,0.88) 100%),url('data:image/webp;base64,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');"></div>
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Faith · Nature · Community</div>
+      <h1 data-i18n="hero.title">Qariatul Ihsan</h1>
+      <p class="hero-sub" data-i18n="hero.sub">A living community rooted in faith, nature and self-sustained living.</p>
+      <p class="hero-scripture"><span data-i18n="scripture.hero">"Help one another in righteousness and piety."</span> <span class="src" data-i18n="scripture.heroSrc">— Surah Al-Ma'idah, 5:2</span></p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary" data-i18n="hero.cta1">Explore Qariatul Ihsan</a>
+        <a href="#community" class="btn btn-outline" data-i18n="hero.cta2">Our Vision</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span data-i18n="hero.scroll">Scroll</span><span class="line"></span></div>
+</header>
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="about.eyebrow">What is Qariatul Ihsan</div>
+      <h2 data-i18n="about.title">Not a farm. Not a mosque. Not a village. A whole way of living.</h2>
+      <p data-i18n="about.sub">Qariatul Ihsan is an evolving ecosystem bringing together faith, education, healthcare, agriculture, community and ethical commerce — grown from the land, rooted in Ihsan.</p>
+      <p class="scripture"><span data-i18n="scripture.about">"It is He who has made you successors upon the earth."</span> <span class="src" data-i18n="scripture.aboutSrc">— Surah Fatir, 35:39</span></p>
+    </div>
+    <div class="grid-6">
+      <div class="pillar-card reveal reveal-delay-1"><div class="pillar-icon">🕌</div><h3 data-i18n="about.c1t">Mosque</h3><p data-i18n="about.c1d">The spiritual heart of the community, gathering people in prayer and remembrance.</p></div>
+      <div class="pillar-card reveal reveal-delay-2"><div class="pillar-icon">📖</div><h3 data-i18n="about.c2t">Madrasa</h3><p data-i18n="about.c2d">A place of Islamic learning and character, nurturing knowledge alongside faith.</p></div>
+      <div class="pillar-card reveal reveal-delay-3"><div class="pillar-icon">🩺</div><h3 data-i18n="about.c3t">Healthcare</h3><p data-i18n="about.c3d">Accessible care for the community, built with dignity and compassion.</p></div>
+      <div class="pillar-card reveal reveal-delay-1"><div class="pillar-icon">🌾</div><h3 data-i18n="about.c4t">Agriculture</h3><p data-i18n="about.c4d">Land that feeds the community — crops, fruit, fish and livestock raised naturally.</p></div>
+      <div class="pillar-card reveal reveal-delay-2"><div class="pillar-icon">🤝</div><h3 data-i18n="about.c5t">Community</h3><p data-i18n="about.c5d">Homes and shared spaces where families live, learn and grow together.</p></div>
+      <div class="pillar-card reveal reveal-delay-3"><div class="pillar-icon">🧺</div><h3 data-i18n="about.c6t">Ethical Commerce</h3><p data-i18n="about.c6d">A city store that carries what the land produces to the people who need it.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="begin.eyebrow">From a Small Beginning</div>
+      <h2 data-i18n="begin.title">A small beginning, growing into a complete community.</h2>
+      <p data-i18n="begin.sub">Today, Qariatul Ihsan is modest and real. Tomorrow, it becomes whole. Both matter.</p>
+      <p class="scripture"><span data-i18n="scripture.begin">"The most beloved of deeds to Allah are the most consistent, even if small."</span> <span class="src" data-i18n="scripture.beginSrc">— Bukhari</span></p>
+    </div>
+    <div class="tt-wrap">
+      <div class="tt-today reveal">
+        <div class="tt-col-label"><span class="tt-dot"></span><h3 data-i18n="begin.todayLabel">Today</h3></div>
+        <div class="tt-list">
+          <div class="tt-item"><span class="tt-emoji">🏠</span><span data-i18n="begin.t1">One small house</span></div>
+          <div class="tt-item"><span class="tt-emoji">🛖</span><span data-i18n="begin.t2">A worker's house</span></div>
+          <div class="tt-item"><span class="tt-emoji">🐐</span><span data-i18n="begin.t3">Goats</span></div>
+          <div class="tt-item"><span class="tt-emoji">🐓</span><span data-i18n="begin.t4">Chickens</span></div>
+          <div class="tt-item"><span class="tt-emoji">🦆</span><span data-i18n="begin.t5">Ducks</span></div>
+          <div class="tt-item"><span class="tt-emoji">🐟</span><span data-i18n="begin.t6">A pond with fish</span></div>
+          <div class="tt-item"><span class="tt-emoji">🌾</span><span data-i18n="begin.t7">Crop fields, fruits and vegetables</span></div>
+        </div>
+      </div>
+      <div class="tt-tomorrow reveal reveal-delay-2">
+        <div class="tt-col-label"><span class="tt-dot"></span><h3 data-i18n="begin.tomorrowLabel">Tomorrow</h3></div>
+        <div class="tt-list">
+          <div class="tt-item"><span class="tt-emoji">🕌</span><span data-i18n="begin.n1">Mosque</span></div>
+          <div class="tt-item"><span class="tt-emoji">📖</span><span data-i18n="begin.n2">Madrasa</span></div>
+          <div class="tt-item"><span class="tt-emoji">🏥</span><span data-i18n="begin.n3">Hospital</span></div>
+          <div class="tt-item"><span class="tt-emoji">🏘️</span><span data-i18n="begin.n4">Community homes</span></div>
+          <div class="tt-item"><span class="tt-emoji">🌿</span><span data-i18n="begin.n5">Expanded farms and gardens</span></div>
+          <div class="tt-item"><span class="tt-emoji">🐄</span><span data-i18n="begin.n6">Larger livestock facilities</span></div>
+          <div class="tt-item"><span class="tt-emoji">🏫</span><span data-i18n="begin.n7">Learning spaces &amp; sustainable infrastructure</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="land">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="land.eyebrow">Explore the Land</div>
+      <h2 data-i18n="land.title">Walk through Qariatul Ihsan today.</h2>
+      <p data-i18n="land.sub">Tap a point on the land to see what's growing, grazing or flowing there right now.</p>
+    </div>
+    <div class="explorer reveal" id="explorer">
+      <div class="explorer-point" style="top:28%;left:22%;" data-point="fields">🌾</div>
+      <div class="explorer-point" style="top:55%;left:38%;" data-point="livestock">🐐</div>
+      <div class="explorer-point" style="top:20%;left:62%;" data-point="poultry">🐓</div>
+      <div class="explorer-point" style="top:40%;left:78%;" data-point="ducks">🦆</div>
+      <div class="explorer-point" style="top:70%;left:66%;" data-point="pond">🐟</div>
+      <div class="explorer-point" style="top:74%;left:20%;" data-point="homes">🏡</div>
+      <div class="explorer-point" style="top:45%;left:12%;" data-point="fruit">🍊</div>
+      <div class="explorer-point" style="top:16%;left:40%;" data-point="veg">🥬</div>
+      <div class="explorer-card" data-card="fields"><h4 data-i18n="land.fieldsT">Fields</h4><p data-i18n="land.fieldsD">Open crop fields form the base of the project's food production.</p></div>
+      <div class="explorer-card" data-card="livestock"><h4 data-i18n="land.livestockT">Livestock</h4><p data-i18n="land.livestockD">Goats are raised naturally as part of the land's small ecosystem.</p></div>
+      <div class="explorer-card" data-card="poultry"><h4 data-i18n="land.poultryT">Poultry</h4><p data-i18n="land.poultryD">Chickens roam freely, part of everyday life on the land.</p></div>
+      <div class="explorer-card" data-card="ducks"><h4 data-i18n="land.ducksT">Ducks</h4><p data-i18n="land.ducksD">Ducks live near the water's edge, close to the pond.</p></div>
+      <div class="explorer-card" data-card="pond"><h4 data-i18n="land.riverT">Pond &amp; Fish</h4><p data-i18n="land.riverD">A natural pond sits on the land, home to fish and biodiversity.</p></div>
+      <div class="explorer-card" data-card="homes"><h4 data-i18n="land.homesT">Homes</h4><p data-i18n="land.homesD">A small house and a worker's house — the first homes on the land.</p></div>
+      <div class="explorer-card" data-card="fruit"><h4 data-i18n="land.fruitT">Fruit Garden</h4><p data-i18n="land.fruitD">Fruit trees are grown as part of the land's natural produce.</p></div>
+      <div class="explorer-card" data-card="veg"><h4 data-i18n="land.vegT">Vegetable Garden</h4><p data-i18n="land.vegD">Vegetables are cultivated for the community and the store.</p></div>
+    </div>
+    <p class="explorer-hint reveal" data-i18n="land.hint">Tap any point to learn what's there.</p>
+  </div>
+</section>
+<section class="section bg-cream" id="agriculture">
+  <div class="container">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="agri.eyebrow">Agriculture</div>
+        <h2 style="color:var(--forest);font-size:clamp(2rem,4vw,2.8rem);margin:14px 0 18px;" data-i18n="agri.title">Growing what sustains us.</h2>
+        <p style="color:#5a5d55;font-size:1.02rem;max-width:480px;" data-i18n="agri.sub">Qariatul Ihsan grows and produces food naturally within its own land — vegetables, fruits, crops, fish, livestock and poultry, connected in one cycle.</p>
+        <div class="cycle">
+          <div class="cycle-step"><div class="cycle-circle">🌱</div><span data-i18n="agri.cy1">Land</span></div>
+          <div class="cycle-arrow">→</div>
+          <div class="cycle-step"><div class="cycle-circle">🌾</div><span data-i18n="agri.cy2">Cultivation</span></div>
+          <div class="cycle-arrow">→</div>
+          <div class="cycle-step"><div class="cycle-circle">🧺</div><span data-i18n="agri.cy3">Harvest</span></div>
+          <div class="cycle-arrow">→</div>
+          <div class="cycle-step"><div class="cycle-circle">🏪</div><span data-i18n="agri.cy4">Store</span></div>
+          <div class="cycle-arrow">→</div>
+          <div class="cycle-step"><div class="cycle-circle">🤲</div><span data-i18n="agri.cy5">Community</span></div>
+        </div>
+        <p class="scripture"><span data-i18n="scripture.agri">"He it is who produces gardens… eat of their fruit when they ripen, and give its due on the day of harvest."</span> <span class="src" data-i18n="scripture.agriSrc">— Surah Al-An'am, 6:141</span></p>
+      </div>
+      <div class="reveal reveal-delay-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="ph ph-tone-1" style="aspect-ratio:3/4;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"><div class="ph-label" data-i18n="agri.p1">Vegetables</div></div>
+        <div class="ph ph-tone-2" style="aspect-ratio:3/4;margin-top:26px;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"><div class="ph-label" data-i18n="agri.p2">Fruits</div></div>
+        <div class="ph ph-tone-3" style="aspect-ratio:3/4;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"><div class="ph-label" data-i18n="agri.p3">Crops</div></div>
+        <div class="ph ph-tone-4" style="aspect-ratio:3/4;margin-top:26px;"><div class="ph-label" data-i18n="agri.p4">Fish</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="river-wrap reveal" style="background-image:linear-gradient(160deg,rgba(20,40,24,0.5),rgba(52,90,60,0.4) 100%),url('data:image/webp;base64,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');"><div class="river-water"></div><div class="river-wave"></div>
+      <div class="river-content">
+        <div class="eyebrow" style="color:var(--sage);" data-i18n="river.eyebrow">Pond &amp; Nature</div>
+        <h2 data-i18n="river.title">Life gathers at Qariatul Ihsan's pond.</h2>
+        <p style="color:var(--sage);margin-top:14px;" data-i18n="river.sub">A natural pond sits at the heart of the land — holding fish, feeding the soil, and shaping the biodiversity around it.</p>
+        <div class="river-tags">
+          <span class="river-tag" data-i18n="river.tag1">Pond</span>
+          <span class="river-tag" data-i18n="river.tag2">Fish</span>
+          <span class="river-tag" data-i18n="river.tag3">Water</span>
+          <span class="river-tag" data-i18n="river.tag4">Trees</span>
+          <span class="river-tag" data-i18n="river.tag5">Fields</span>
+          <span class="river-tag" data-i18n="river.tag6">Biodiversity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="animals.eyebrow">Animals &amp; Livestock</div>
+      <h2 data-i18n="animals.title">Part of a living ecosystem, not just a farm.</h2>
+      <p class="scripture"><span data-i18n="scripture.animals">"Whoever is kind to God's creatures is kind to himself."</span> <span class="src" data-i18n="scripture.animalsSrc">— Abu Dawud 2858</span></p>
+    </div>
+    <figure class="animal-showcase reveal reveal-delay-1">
+      <img src="livestock-collage-2k.png" alt="Chickens and ducks at Qariatul Ihsan's farm" loading="lazy" decoding="async">
+      <figcaption data-i18n="animals.combined">Our livestock at Qariatul Ihsan</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="section bg-forest" id="community">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="future.eyebrow">Our Future Community</div>
+      <h2 data-i18n="future.title">A community built with Ihsan.</h2>
+      <p data-i18n="future.sub">This is the vision Qariatul Ihsan is growing toward — not yet built, but clearly imagined.</p>
+    </div>
+    <div class="future-grid">
+      <div class="future-card reveal reveal-delay-1"><div class="num">01</div><h3 data-i18n="future.c1t">Mosque</h3><p data-i18n="future.c1d">A spiritual center for the community.</p></div>
+      <div class="future-card reveal reveal-delay-2"><div class="num">02</div><h3 data-i18n="future.c2t">Madrasa</h3><p data-i18n="future.c2d">A place for knowledge and Islamic education.</p></div>
+      <div class="future-card reveal reveal-delay-3"><div class="num">03</div><h3 data-i18n="future.c3t">Hospital</h3><p data-i18n="future.c3d">Healthcare accessible to the community.</p></div>
+      <div class="future-card reveal reveal-delay-1"><div class="num">04</div><h3 data-i18n="future.c4t">Homes</h3><p data-i18n="future.c4d">A peaceful environment for families.</p></div>
+      <div class="future-card reveal reveal-delay-2"><div class="num">05</div><h3 data-i18n="future.c5t">Agriculture</h3><p data-i18n="future.c5d">Food and sustainable livelihoods.</p></div>
+      <div class="future-card reveal reveal-delay-3"><div class="num">06</div><h3 data-i18n="future.c6t">Community Spaces</h3><p data-i18n="future.c6d">Places to learn, gather and grow together.</p></div>
+    </div>
+  </div>
+</section>
+<section class="philosophy">
+  <div class="philosophy-pattern"></div>
+  <div class="container reveal" style="position:relative;">
+    <div class="eyebrow" data-i18n="phil.eyebrow">The Meaning of Ihsan</div>
+    <p class="philosophy-quote" data-i18n="phil.quote">"Ihsan means excellence, goodness, and doing what is beautiful."</p>
+    <p style="max-width:560px;margin:0 auto;color:#5a5d55;" data-i18n="phil.sub">This spirit shapes every part of Qariatul Ihsan — how the land is cared for, how people are treated, and how the community is built.</p>
+    <p class="scripture" style="margin-left:auto;margin-right:auto;"><span data-i18n="scripture.phil">"Allah has prescribed excellence (ihsan) in all things."</span> <span class="src" data-i18n="scripture.philSrc">— Sahih Muslim 1955</span></p>
+    <div class="philosophy-values">
+      <span class="philosophy-value" data-i18n="phil.v1">Caring for people</span>
+      <span class="philosophy-value" data-i18n="phil.v2">Caring for nature</span>
+      <span class="philosophy-value" data-i18n="phil.v3">Learning</span>
+      <span class="philosophy-value" data-i18n="phil.v4">Serving others</span>
+      <span class="philosophy-value" data-i18n="phil.v5">Building responsibly</span>
+      <span class="philosophy-value" data-i18n="phil.v6">Living with dignity</span>
+    </div>
+  </div>
+</section>
+<section class="section bg-cream" id="store" hidden aria-hidden="true">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="store.eyebrow">Our Store</div>
+      <h2 data-i18n="store.title">From our land to your home.</h2>
+      <p data-i18n="store.sub">A city-based store connecting the land to the people — carrying what's grown here, and what's woven into Bangladesh's heritage.</p>
+      <p class="scripture"><span data-i18n="scripture.store">"Give full measure and weight in justice."</span> <span class="src" data-i18n="scripture.storeSrc">— Surah Al-An'am, 6:152</span></p>
+    </div>
+    <div class="store-split">
+      <div class="store-card ph ph-tone-3 reveal reveal-delay-1" style="background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;">
+        <h3 data-i18n="store.c1t">From Our Land</h3>
+        <p data-i18n="store.c1d">Fruits, vegetables and agricultural products grown right here at Qariatul Ihsan.</p>
+        <a href="#products" class="btn btn-primary" data-i18n="store.c1btn">Browse Products</a>
+      </div>
+      <div class="store-card ph ph-tone-5 reveal reveal-delay-2">
+        <h3 data-i18n="store.c2t">From Our Heritage</h3>
+        <p data-i18n="store.c2d">Traditional Bangladeshi clothing and cultural products, made with care.</p>
+        <a href="#products" class="btn btn-primary" data-i18n="store.c2btn">Browse Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="products.eyebrow">Product Showcase</div>
+      <h2 data-i18n="products.title">A first look at what we grow and make.</h2>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal reveal-delay-1"><div class="product-img ph ph-tone-1"></div><div class="product-body"><div class="product-cat" data-i18n="products.cat1">From Our Land</div><h4 data-i18n="products.p1t">Seasonal Vegetables</h4><p data-i18n="products.p1d">Harvested fresh from the fields.</p><div class="product-foot"><span class="product-price" data-i18n="products.price">Price on request</span><span class="product-view" data-i18n="products.view">View Product</span></div></div></div>
+      <div class="product-card reveal reveal-delay-2"><div class="product-img ph ph-tone-2"></div><div class="product-body"><div class="product-cat" data-i18n="products.cat1">From Our Land</div><h4 data-i18n="products.p2t">Orchard Fruits</h4><p data-i18n="products.p2d">Grown naturally on our fruit garden.</p><div class="product-foot"><span class="product-price" data-i18n="products.price">Price on request</span><span class="product-view" data-i18n="products.view">View Product</span></div></div></div>
+ <div class="product-card reveal reveal-delay-3"><div class="product-img ph ph-tone-5"></div><div class="product-body"><div class="product-cat" data-i18n="products.cat1">From Our Land</div><h4 data-i18n="products.p3t">Rice Atta</h4><p data-i18n="products.p3d">Freshly prepared from quality rice.</p><div class="product-foot"><span class="product-price" data-i18n="products.price">Price on request</span><span class="product-view" data-i18n="products.view">View Product</span></div></div></div>
+      <div class="product-card reveal reveal-delay-4"><div class="product-img ph ph-tone-4"></div><div class="product-body"><div class="product-cat" data-i18n="products.cat1">From Our Land</div><h4 data-i18n="products.p4t">Mustard Oil</h4><p data-i18n="products.p4d">A golden pantry essential from our agricultural cycle.</p><div class="product-foot"><span class="product-price" data-i18n="products.price">Price on request</span><span class="product-view" data-i18n="products.view">View Product</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="section bg-cream" id="journal">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="journal.eyebrow">Qariatul Ihsan Journal</div>
+      <h2 data-i18n="journal.title">From the land.</h2>
+    </div>
+    <div class="journal-grid">
+      <div class="journal-card reveal reveal-delay-1"><div class="journal-img ph ph-tone-3"></div><div class="journal-body"><div class="journal-date" data-i18n="journal.tag1">Field Notes</div><h4 data-i18n="journal.a1t">A Day at Qariatul Ihsan</h4><p data-i18n="journal.a1d">A walk through the fields, the pond and the first small home.</p></div></div>
+      <div class="journal-card reveal reveal-delay-2"><div class="journal-img ph ph-tone-1"></div><div class="journal-body"><div class="journal-date" data-i18n="journal.tag2">Harvest</div><h4 data-i18n="journal.a2t">Our First Harvest</h4><p data-i18n="journal.a2d">What it felt like to gather what the land first gave back.</p></div></div>
+      <div class="journal-card reveal reveal-delay-3"><div class="journal-img ph ph-tone-4"></div><div class="journal-body"><div class="journal-date" data-i18n="journal.tag3">Nature</div><h4 data-i18n="journal.a3t">Life Beside the Pond</h4><p data-i18n="journal.a3d">Fish, water and quiet mornings along the pond's edge.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="gallery.eyebrow">Gallery</div>
+      <h2 data-i18n="gallery.title">Qariatul Ihsan, in images.</h2>
+    </div>
+    <div class="gallery-filters reveal">
+      <button class="gfilter active" data-filter="all" data-i18n="gallery.fall">All</button>
+      <button class="gfilter" data-filter="land" data-i18n="gallery.fland">Land</button>
+      <button class="gfilter" data-filter="agri" data-i18n="gallery.fagri">Agriculture</button>
+      <button class="gfilter" data-filter="animals" data-i18n="gallery.fanimals">Animals</button>
+      <button class="gfilter" data-filter="pond" data-i18n="gallery.fpond">Pond</button>
+    </div>
+    <div class="gallery-grid reveal" id="galleryGrid">
+      <div class="gallery-item" data-cat="land"><div class="ph" style="aspect-ratio:4/5;background-image:url('data:image/webp;base64,UklGRu4FAABXRUJQVlA4IOIFAAAQKACdASpYAMgAPwl0sFIrpqSiqXetqXAhCWUAzal4cOtTcXCtortsdpuC7jdet7zZnQPI//vhGnyzGvrubEh2KJpdXyvluZHU3l5JVmwszrW0zz9mSD3tL4cz12J9N71dCUDPKxCeb/trD9Y47SKAmLwguTnhgp+QtgunxgNFSwV0XJwpntS6e7QqYQbiUr/kPeCUsVpz8bogDvaJ+P5uLakAyXpoS1yfX/RD4MWklp0lFWNx4BQEKLGES/pBnmd2joUk1PFO8XjgTqUMbeBjmtfkAfLOPWSHo+NekGOkhAIL7mLKXi5NITnopD7vh5cFGZkEk5AM2vhYTLBHJzXslwgU4t1njfV8f+Yay+8NaF5EOXwHvbcSvzwE/KNsxmZ2i3VC3RNA3upg3+OQ7BY+AMDCtdlCtBvUt5Zu45k5EWQU5myne1W+AAD+9LjvgAyP/rd9begWcexa8GPpSK05Th8yxEH96LoQOedokGhKMXojFGO3F77pv89klriB0womcFGq7oH4vhew74n43VCTJxcy1BCrflvg1bV7Nret9hkEucH8bteqlxEo1mOw6dFHlzAb+rUUUdlMaPGmAX7Vu2BlcppbsdK5lXqPaIUBwy2ujKrWeVZ8or7QiciQ25s1LPYCUC68h3PESmzkP7syeAQpGo2OQjuLKBHs6wftwh/NujIYsRVpm0dvLp9obkWQEdGUZOoalJSwnq9q/4O43+VlhM0/cxivwB08/gRQXnrJyTgj7+Ha5LzaPGMGSwXRT/+lJb5LD2CozwZ6v2GiyvHqUxQpx6hgOyGkRRSsF1f+hYcZdehY2EdyiCG8sR7WaClFh8cp3ghxMGjBcPxzr+QqxiN8UEQXaRnawO52SBT6spovrvu3rguZTCjiFWEuHCEqe0esFQhrQPsY1Yadt1fywhgeI/+aKaEl2XxOxU/n4gNs4d4MTL+JoECo4IsYjt70I5Zv8/vgbr8xBFhR6PCKrbDuZGXJb1wpCLMgm2RlURKgQkW7bVAaYXTQyJE1aRlJHwbIihGDVkdDLlS4FVtsJpGdIUJDcd0/5hKWs4DM1N0t3+5bSz75kICKzvBlLApZM2JHF9AjCkYvtssWdVu2DZ42nQlL7u/l9ABBhhsaLL0M46PXrxPkozYlE4tTx7mz76gnVmB4NAitwi3M4hWXknxd+wCfxG9VR8/7qTJN6lyk7iLqPdpVt1/ioCF/jSyHyDvHiJxzDz01ZumAPu8+1c1uNvCkrGBbDQG72yuJ9hcagaWX9Y33hLEQUmnzim/ftRVPkmbw3Olk3owOKkROLSQHg/SFdf3T2+v/Ju5HWIaMoNc6+EfOh3n7i62WGY4yPHLaorOlvM8cD3/s63V7N2fAfc7DHWbexH8wz29ot/H4RB+s13O24Zu6zTpaLKmILr8cdpIe9PrXz6m2Sq4I+M8C968eabFiSLokS0FY3Kobi0qVDgLwkYYugoVH/D8V7yS8kQJ9iqww8DtlaI3Wi1yOq5x2pQmWTBnewyECy0eDha4EbAFfjVipLNaiKuDEh6b1iRCS5thhTkVxFhUH6ewYdMI8PvkbyXzUom8odtB12xmNXovjCqi4Yycuwn1fi8IWKmoyOCixrRAfejS0kmkSty6tmJfUtS5DE1Ga+gikwnxUYHeKfSFal9uXDO5dIQSbqYSdpLExUYntHBZbhCoP89e0ZOtYU/qejSEJVz0kNTjoJmU4n23L7vwZ3EIpSxBhm7DYvsFzk5IeW3ENmYwE+btzl7J2Uvw0C6pO1SLKUm98hmil55z8DOEJ0C9De+ta6rh7Q5vdwXIk8wD1cSGtt10h5Twb42HLRUQkLWLMtLiR7S6OeO2LJMwalvgRqLwDjipRkeqnSroVBt2EzWmfodJR/NCCaSAgqKYVnwtxZjp4d8kKx8AH7GkxFu1oZ77tMR0SOob6Sxfnvf5wXDeSkOoODIIJla/j9mN775j/4QovHWal9GGtv9YvbwBZL32hFg+/pBNGThEAAAA=');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="land"><div class="ph" style="aspect-ratio:3/4;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="land"><div class="ph" style="aspect-ratio:1/1;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="land"><div class="ph" style="aspect-ratio:4/5;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="agri"><div class="ph" style="aspect-ratio:1/1;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="agri"><div class="ph" style="aspect-ratio:3/4;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="agri"><div class="ph" style="aspect-ratio:4/5;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="animals"><div class="ph ph-tone-4" style="aspect-ratio:1/1;"></div></div>
+      <div class="gallery-item" data-cat="animals"><div class="ph ph-tone-2" style="aspect-ratio:4/5;"></div></div>
+      <div class="gallery-item" data-cat="pond"><div class="ph" style="aspect-ratio:1/1;background-image:url('data:image/webp;base64,UklGRvIFAABXRUJQVlA4IOYFAAAwJACdASpYAMgAPwl8tVUrpyStJjd6qaAhCWVt6IglZuEUuBwjIeE8JdKbPJeBP+FUWTlxwWJT374QS+UFC3kQJh2qjzwkh52Ki/iSLi3bL1Tsnseh7vYFApSRsnGT+uvFGrsuwSl6mrSQL9V/Sta/lrDy0FNl9t3FDRVDEzj6ZFykEOOWdoUB1jZWetC4pdH322PmdrjMhTDK+5tlGFFtt72WO2/cyBgwa6/Yc0wegE1ZeV67KEfqoyM4/A9LQ/S9EhuF4PX+3tjX3rbdnppTjAaBX04byX5LhDoxa41pXgOotmpP7vCC6+ddxggezOuwQrp8Mgev3UxFB2v4S3fmpElVV85fQPq3K8sCpYOHOp//kc9ZpBP6IbOhh9VZAHcTIlX+WJK0ojoAAP73CIAA9Ne34g3FFcaIp6i86dL3B6u2npdNKb+P1gWhvRhVOjhUja3ZnMtfYLsUcxU5AKAr7aE19MvH8T0Ly3XB46krqfGDDJY4NowZpyLg/fZHPCsPHmoXK/TPVu6twrrfoyTY2DQbNtVevlUC68ogAs0m26Zti7rxXHbGzeTsShTp6/fTz+ZA283poEvqoNu5spGbidV18R6GqNNyTPYWFpApj6tecuFvzICDb8D3DGm6224wch+K9wFcfIAV3Hy+1s1ztbnUo/pD8JA5o2YWXe0ZUoVZ6yCUOR9YFj/XV3FbIM8tpkevivT+RK90Pkcx7/r56hasmirOmQd/0qdfmYB2XOkIkordJPZHaZ163ctJK4HX53eHWFQjN2kwR6ECR/bz21ES/Sjh22Azuualzs7ZbwgD+Rni5VaM2NYRvV/RqBsB9YTTGlXhn6ubqjdBcplQNKoLGGGnDWYYhKGo6JYjAqtBAXcnWNT0Gc/LkkBRLgSXWM2IJxfWjPKIkqJOW8ULLJTvAgXqIpVtaPxizS70eeE2MJNVww/scHpQHfwbqGiekN9rk+mzwk1vZadCGu5jTxh5dSzYAlsRbnMoXvQja70lQZ641G8e4omGroMckjynRgsbb3gD7nOluDja6PYHdXAaCHw3EbcBKq3oyVE3pcK3oPLqgQjwW97GmcYNcsNCWRcxE7NGuHqCQhmxj02lc1Ar23E+JWY7dO5tvZU+y1ULnTTsFM7Ka4JUlpPVYhgSPPfSkYZBA8FFB5+dts0LfwChGaOY3Txz088VP9pg67X5dWATsAH/S9rS9HpYJLybywpIT72NCqa/pIql4Vqcp5mC8gO6N2cieHoPrzF+x58wjvpbsvasA0pPxIpj9u89/E74f8C3Pg8iShAABPz6/NqmzBBRyb3RwFBaTjgd3URe8Cpzb8PWSteHmM20TcuIuWN5LVke8q+7LAws/RcRSa48dpoJ/SDa/R+/M3Ia5QhjdwP+F4aKpEm7CkJxvJiPCC/tgdgXQgFKD2emA4N8puPPmfpC4IHPZAs1hW6vS0rOkM0JsxFJghAa34EQgEKxxRqTkgLC+ZWd2rO296w8DtyZeX/IXJj2verPqc6KM0/gfbAhD6JqhLOhZr+I/aPAJ6V0vHAdhIfFIetP4o6bzVE1UXoK0mor6Rn1qvywfHHn2sBF1RIiEfYOSYBuL+JJaAanso257FDNiYdQ9W4SOS4XrWltPwKoa+KL5k/9u23c/DgjKCzc1635fR/8G8ZKn/gu+FRcPvCouxmF6NIVJRlVoowMm3Lh65+5cAbXg6tQ+unEarRAhxqBWg8H+q3GDAEEv9elsInWPTbvvaHqHymerFkBAgY/QgWTZQt2h9B0+wcoe3JHrCnycyyNrOQ84N6wVCWN925ONeRVNTf+m9zmD6wFlKi7kmzRvnfZYpRoC8jZxgGGCoblg0W199/O0HkC8u0mXqTHorpP7XLqKiW/og/bBC3j/OH2KsGg7ZF/ygn18Xxcwg8gY7ZUxjYiad7Eg5ii6GF1BVjKlSXHlnn2toJhp3edwbaosLLDt9KO5ZLZQ4J9Yi7gJMQcuDnjSMYFDkuKjBEFQ3ud9BhgxAANGgAA');background-size:cover;background-position:center;"></div></div>
+      <div class="gallery-item" data-cat="pond"><div class="ph" style="aspect-ratio:3/4;background-image:url('data:image/webp;base64,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');background-size:cover;background-position:center;"></div></div>
+    </div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <div class="lightbox-inner ph ph-tone-1" id="lightboxImg"></div>
+</div>
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="tl.eyebrow">Where We Are Going</div>
+      <h2 data-i18n="tl.title">Our journey, one stage at a time.</h2>
+    </div>
+    <div class="timeline reveal" style="max-width:700px;">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-tag" data-i18n="tl.s1tag">Stage 01</div><h3 data-i18n="tl.s1t">Foundation</h3><p data-i18n="tl.s1d">Small land and the first house — where it all began.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-tag" data-i18n="tl.s2tag">Stage 02</div><h3 data-i18n="tl.s2t">Growth</h3><p data-i18n="tl.s2d">Agriculture, livestock and the pond ecosystem take shape.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-tag" data-i18n="tl.s3tag">Stage 03</div><h3 data-i18n="tl.s3t">Community</h3><p data-i18n="tl.s3d">Mosque, madrasa and healthcare begin to rise.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-tag" data-i18n="tl.s4tag">Stage 04</div><h3 data-i18n="tl.s4t">Self-Sustaining Village</h3><p data-i18n="tl.s4d">Expanded agriculture, homes and a growing community.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-tag" data-i18n="tl.s5tag">Stage 05</div><h3 data-i18n="tl.s5t">Qariatul Ihsan</h3><p data-i18n="tl.s5d">A complete living community, whole and self-sustained.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow" data-i18n="contact.eyebrow">Visit Us</div>
+      <h2 data-i18n="contact.title">Come see Qariatul Ihsan.</h2>
+      <p class="scripture"><span data-i18n="scripture.contact">"Indeed, Allah commands you to render trusts to whom they are due."</span> <span class="src" data-i18n="scripture.contactSrc">— Surah An-Nisa, 4:58</span></p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-item"><div class="contact-icon">📍</div><div><h4 data-i18n="contact.i1t">Project Location</h4><p><a href="https://maps.app.goo.gl/g3KAZZAMRfJCip5t8" target="_blank" rel="noopener" data-i18n="contact.i1d">View on Google Maps</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">🏪</div><div><h4 data-i18n="contact.i2t">City Store</h4><p><a href="https://maps.app.goo.gl/6Ar4CBxvQACfdoa37" target="_blank" rel="noopener" data-i18n="contact.i2d">View on Google Maps</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><h4 data-i18n="contact.i3t">Phone</h4><p><a href="tel:+8801715004251" data-i18n="contact.i3d">01715-004251</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">✉️</div><div><h4 data-i18n="contact.i4t">Email</h4><p><a href="mailto:qariatulihsan@gmail.com" data-i18n="contact.i4d">qariatulihsan@gmail.com</a></p></div></div>
+        <div class="contact-item" style="border-bottom:none;"><div class="contact-icon">🕐</div><div><h4 data-i18n="contact.i5t">Visiting Hours</h4><p data-i18n="contact.i5d">9:00 AM – 10:00 PM (Store)</p></div></div>
+      </div>
+      <div class="map-placeholder reveal reveal-delay-2" style="padding:0;overflow:hidden;border:none;background:none;">
+        <iframe title="Qariatul Ihsan project location map" src="https://www.google.com/maps?q=24.5774862,88.3360765&amp;z=15&amp;output=embed" width="100%" height="340" style="border:0;border-radius:22px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="data:image/webp;base64,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" alt="Qariatul Ihsan logo" style="height:40px;width:auto;margin-bottom:16px;">
+        <p data-i18n="footer.tag">Faith. Nature. Community. A better way of living.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.h1">Explore</h5>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#land" data-i18n="nav.land">Our Land</a>
+        <a href="#community" data-i18n="nav.community">Community</a>
+        <a href="#journal" data-i18n="nav.stories">Stories</a>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.h2">Store</h5>
+        <a href="#products" data-i18n="footer.s1">Products</a>
+        <a href="#products" data-i18n="footer.s2">From Our Land</a>
+        <a href="#products" data-i18n="footer.s3">From Our Heritage</a>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.h3">Connect</h5>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="#" data-i18n="footer.c1">Facebook</a>
+        <a href="#" data-i18n="footer.c2">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.copy">© 2026 Qariatul Ihsan. All rights reserved.</span>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-setlang="en">English</button>
+        <button class="lang-btn" data-setlang="bn">বাংলা</button>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="cms-runtime.js"></script>
+<script>
+const dict = {
+en:{
+ "brand.name":"Qariatul Ihsan",
+ "nav.home":"Home","nav.about":"About","nav.land":"Our Land","nav.agri":"Agriculture","nav.community":"Community","nav.store":"Store","nav.stories":"Stories","nav.gallery":"Gallery","nav.contact":"Contact",
+ "hero.eyebrow":"Faith · Nature · Community","hero.title":"Qariatul Ihsan","hero.sub":"A living community rooted in faith, nature and self-sustained living.","hero.cta1":"Explore Qariatul Ihsan","hero.cta2":"Our Vision","hero.scroll":"Scroll",
+ "about.eyebrow":"What is Qariatul Ihsan","about.title":"Not a farm. Not a mosque. Not a village. A whole way of living.","about.sub":"Qariatul Ihsan is an evolving ecosystem bringing together faith, education, healthcare, agriculture, community and ethical commerce — grown from the land, rooted in Ihsan.",
+ "about.c1t":"Mosque","about.c1d":"The spiritual heart of the community, gathering people in prayer and remembrance.",
+ "about.c2t":"Madrasa","about.c2d":"A place of Islamic learning and character, nurturing knowledge alongside faith.",
+ "about.c3t":"Healthcare","about.c3d":"Accessible care for the community, built with dignity and compassion.",
+ "about.c4t":"Agriculture","about.c4d":"Land that feeds the community — crops, fruit, fish and livestock raised naturally.",
+ "about.c5t":"Community","about.c5d":"Homes and shared spaces where families live, learn and grow together.",
+ "about.c6t":"Ethical Commerce","about.c6d":"A city store that carries what the land produces to the people who need it.",
+ "begin.eyebrow":"From a Small Beginning","begin.title":"A small beginning, growing into a complete community.","begin.sub":"Today, Qariatul Ihsan is modest and real. Tomorrow, it becomes whole. Both matter.",
+ "begin.todayLabel":"Today","begin.tomorrowLabel":"Tomorrow",
+ "begin.t1":"One small house","begin.t2":"A worker's house","begin.t3":"Goats","begin.t4":"Chickens","begin.t5":"Ducks","begin.t6":"A pond with fish","begin.t7":"Crop fields, fruits and vegetables",
+ "begin.n1":"Mosque","begin.n2":"Madrasa","begin.n3":"Hospital","begin.n4":"Community homes","begin.n5":"Expanded farms and gardens","begin.n6":"Larger livestock facilities","begin.n7":"Learning spaces & sustainable infrastructure",
+ "land.eyebrow":"Explore the Land","land.title":"Walk through Qariatul Ihsan today.","land.sub":"Tap a point on the land to see what's growing, grazing or flowing there right now.","land.hint":"Tap any point to learn what's there.",
+ "land.fieldsT":"Fields","land.fieldsD":"Open crop fields form the base of the project's food production.",
+ "land.livestockT":"Livestock","land.livestockD":"Goats are raised naturally as part of the land's small ecosystem.",
+ "land.poultryT":"Poultry","land.poultryD":"Chickens roam freely, part of everyday life on the land.",
+ "land.ducksT":"Ducks","land.ducksD":"Ducks live near the water's edge, close to the pond.",
+ "land.riverT":"Pond & Fish","land.riverD":"A natural pond sits on the land, home to fish and biodiversity.",
+ "land.homesT":"Homes","land.homesD":"A small house and a worker's house — the first homes on the land.",
+ "land.fruitT":"Fruit Garden","land.fruitD":"Fruit trees are grown as part of the land's natural produce.",
+ "land.vegT":"Vegetable Garden","land.vegD":"Vegetables are cultivated for the community and the store.",
+ "agri.eyebrow":"Agriculture","agri.title":"Growing what sustains us.","agri.sub":"Qariatul Ihsan grows and produces food naturally within its own land — vegetables, fruits, crops, fish, livestock and poultry, connected in one cycle.",
+ "agri.cy1":"Land","agri.cy2":"Cultivation","agri.cy3":"Harvest","agri.cy4":"Store","agri.cy5":"Community",
+ "agri.p1":"Vegetables","agri.p2":"Fruits","agri.p3":"Crops","agri.p4":"Fish",
+ "river.eyebrow":"Pond & Nature","river.title":"Life gathers at Qariatul Ihsan's pond.","river.sub":"A natural pond sits at the heart of the land — holding fish, feeding the soil, and shaping the biodiversity around it.",
+ "river.tag1":"Pond","river.tag2":"Fish","river.tag3":"Water","river.tag4":"Trees","river.tag5":"Fields","river.tag6":"Biodiversity",
+ "animals.eyebrow":"Animals & Livestock","animals.title":"Part of a living ecosystem, not just a farm.","animals.combined":"Our livestock at Qariatul Ihsan","animals.a1":"Goats","animals.a2":"Chickens","animals.a3":"Ducks","animals.a4":"Fish",
+ "future.eyebrow":"Our Future Community","future.title":"A community built with Ihsan.","future.sub":"This is the vision Qariatul Ihsan is growing toward — not yet built, but clearly imagined.",
+ "future.c1t":"Mosque","future.c1d":"A spiritual center for the community.",
+ "future.c2t":"Madrasa","future.c2d":"A place for knowledge and Islamic education.",
+ "future.c3t":"Hospital","future.c3d":"Healthcare accessible to the community.",
+ "future.c4t":"Homes","future.c4d":"A peaceful environment for families.",
+ "future.c5t":"Agriculture","future.c5d":"Food and sustainable livelihoods.",
+ "future.c6t":"Community Spaces","future.c6d":"Places to learn, gather and grow together.",
+ "phil.eyebrow":"The Meaning of Ihsan","phil.quote":"Ihsan means excellence, goodness, and doing what is beautiful.","phil.sub":"This spirit shapes every part of Qariatul Ihsan — how the land is cared for, how people are treated, and how the community is built.",
+ "phil.v1":"Caring for people","phil.v2":"Caring for nature","phil.v3":"Learning","phil.v4":"Serving others","phil.v5":"Building responsibly","phil.v6":"Living with dignity",
+ "store.eyebrow":"Our Store","store.title":"From our land to your home.","store.sub":"A city-based store connecting the land to the people — carrying what's grown here, and what's woven into Bangladesh's heritage.",
+ "store.c1t":"From Our Land","store.c1d":"Fruits, vegetables and agricultural products grown right here at Qariatul Ihsan.","store.c1btn":"Browse Products",
+ "store.c2t":"From Our Heritage","store.c2d":"Traditional Bangladeshi clothing and cultural products, made with care.","store.c2btn":"Browse Products",
+ "products.eyebrow":"Product Showcase","products.title":"A first look at what we grow and make.","products.price":"Price on request","products.view":"View Product",
+ "products.cat1":"From Our Land","products.cat2":"From Our Heritage",
+ "products.p1t":"Seasonal Vegetables","products.p1d":"Harvested fresh from the fields.",
+ "products.p2t":"Orchard Fruits","products.p2d":"Grown naturally on our fruit garden.",
+  "products.p3t":"Rice Atta","products.p3d":"Freshly prepared from quality rice.",
+ "products.p4t":"Mustard Oil","products.p4d":"A golden pantry essential from our agricultural cycle.",
+ "journal.eyebrow":"Qariatul Ihsan Journal","journal.title":"From the land.",
+ "journal.tag1":"Field Notes","journal.a1t":"A Day at Qariatul Ihsan","journal.a1d":"A walk through the fields, the pond and the first small home.",
+ "journal.tag2":"Harvest","journal.a2t":"Our First Harvest","journal.a2d":"What it felt like to gather what the land first gave back.",
+ "journal.tag3":"Nature","journal.a3t":"Life Beside the Pond","journal.a3d":"Fish, water and quiet mornings along the pond's edge.",
+ "gallery.eyebrow":"Gallery","gallery.title":"Qariatul Ihsan, in images.","gallery.fall":"All","gallery.fland":"Land","gallery.fagri":"Agriculture","gallery.fanimals":"Animals","gallery.fpond":"Pond",
+ "tl.eyebrow":"Where We Are Going","tl.title":"Our journey, one stage at a time.",
+ "tl.s1tag":"Stage 01","tl.s1t":"Foundation","tl.s1d":"Small land and the first house — where it all began.",
+ "tl.s2tag":"Stage 02","tl.s2t":"Growth","tl.s2d":"Agriculture, livestock and the pond ecosystem take shape.",
+ "tl.s3tag":"Stage 03","tl.s3t":"Community","tl.s3d":"Mosque, madrasa and healthcare begin to rise.",
+ "tl.s4tag":"Stage 04","tl.s4t":"Self-Sustaining Village","tl.s4d":"Expanded agriculture, homes and a growing community.",
+ "tl.s5tag":"Stage 05","tl.s5t":"Qariatul Ihsan","tl.s5d":"A complete living community, whole and self-sustained.",
+ "contact.eyebrow":"Visit Us","contact.title":"Come see Qariatul Ihsan.",
+ "contact.i1t":"Project Location","contact.i1d":"View on Google Maps",
+ "contact.i2t":"City Store","contact.i2d":"View on Google Maps",
+ "contact.i3t":"Phone","contact.i3d":"01715-004251",
+ "contact.i4t":"Email","contact.i4d":"qariatulihsan@gmail.com",
+ "contact.i5t":"Visiting Hours","contact.i5d":"9:00 AM – 10:00 PM (Store)",
+ "contact.mapPlaceholder":"Map placeholder — location to be added",
+ "scripture.hero":"“Help one another in righteousness and piety.”","scripture.heroSrc":"— Surah Al-Ma'idah, 5:2",
+ "scripture.about":"“It is He who has made you successors upon the earth.”","scripture.aboutSrc":"— Surah Fatir, 35:39",
+ "scripture.begin":"“The most beloved of deeds to Allah are the most consistent, even if small.”","scripture.beginSrc":"— Bukhari",
+ "scripture.agri":"“He it is who produces gardens… eat of their fruit when they ripen, and give its due on the day of harvest.”","scripture.agriSrc":"— Surah Al-An'am, 6:141",
+ "scripture.animals":"“Whoever is kind to God's creatures is kind to himself.”","scripture.animalsSrc":"— Abu Dawud 2858",
+ "scripture.phil":"“Allah has prescribed excellence (ihsan) in all things.”","scripture.philSrc":"— Sahih Muslim 1955",
+ "scripture.store":"“Give full measure and weight in justice.”","scripture.storeSrc":"— Surah Al-An'am, 6:152",
+ "scripture.contact":"“Indeed, Allah commands you to render trusts to whom they are due.”","scripture.contactSrc":"— Surah An-Nisa, 4:58",
+ "footer.tag":"Faith. Nature. Community. A better way of living.",
+ "footer.h1":"Explore","footer.h2":"Store","footer.h3":"Connect",
+ "footer.s1":"Products","footer.s2":"From Our Land","footer.s3":"From Our Heritage",
+ "footer.c1":"Facebook","footer.c2":"Instagram",
+ "footer.copy":"© 2026 Qariatul Ihsan. All rights reserved."
+},
+bn:{
+ "brand.name":"কারিয়াতুল ইহসান",
+ "nav.home":"হোম","nav.about":"পরিচিতি","nav.land":"আমাদের জমি","nav.agri":"কৃষি","nav.community":"সম্প্রদায়","nav.store":"দোকান","nav.stories":"গল্প","nav.gallery":"গ্যালারি","nav.contact":"যোগাযোগ",
+ "hero.eyebrow":"ঈমান · প্রকৃতি · সম্প্রদায়","hero.title":"কারিয়াতুল ইহসান","hero.sub":"ঈমান, প্রকৃতি ও স্বনির্ভর জীবনব্যবস্থার একটি জীবন্ত সম্প্রদায়।","hero.cta1":"কারিয়াতুল ইহসান ঘুরে দেখুন","hero.cta2":"আমাদের লক্ষ্য","hero.scroll":"স্ক্রল করুন",
+ "about.eyebrow":"কারিয়াতুল ইহসান কী","about.title":"শুধু একটি খামার, মসজিদ বা গ্রাম নয় — একটি সম্পূর্ণ জীবনব্যবস্থা।","about.sub":"কারিয়াতুল ইহসান একটি ক্রমবর্ধমান বাস্তুতন্ত্র, যেখানে ঈমান, শিক্ষা, স্বাস্থ্যসেবা, কৃষি, সম্প্রদায় ও নৈতিক বাণিজ্য এক সূত্রে গাঁথা।",
+ "about.c1t":"মসজিদ","about.c1d":"সম্প্রদায়ের আধ্যাত্মিক কেন্দ্র, নামাজ ও জিকিরের স্থান।",
+ "about.c2t":"মাদ্রাসা","about.c2d":"ইসলামি শিক্ষা ও চরিত্র গঠনের একটি স্থান।",
+ "about.c3t":"স্বাস্থ্যসেবা","about.c3d":"মর্যাদা ও সহানুভূতির সাথে গড়া, সবার জন্য সহজলভ্য চিকিৎসা।",
+ "about.c4t":"কৃষি","about.c4d":"এমন জমি যা সম্প্রদায়ের খাদ্য যোগায় — ফসল, ফল, মাছ ও গবাদিপশু।",
+ "about.c5t":"সম্প্রদায়","about.c5d":"এমন ঘর ও ভাগাভাগির জায়গা যেখানে পরিবারগুলো একসাথে বাঁচে, শেখে ও বেড়ে ওঠে।",
+ "about.c6t":"নৈতিক বাণিজ্য","about.c6d":"একটি শহরভিত্তিক দোকান, যা জমির উৎপাদন মানুষের কাছে পৌঁছে দেয়।",
+ "begin.eyebrow":"একটি ছোট সূচনা থেকে","begin.title":"ছোট এক শুরু, ধীরে ধীরে পূর্ণাঙ্গ সম্প্রদায়ে পরিণত হচ্ছে।","begin.sub":"আজ কারিয়াতুল ইহসান ছোট ও বাস্তব। আগামীকাল এটি পূর্ণতা পাবে। দুটোই গুরুত্বপূর্ণ।",
+ "begin.todayLabel":"আজ","begin.tomorrowLabel":"আগামীকাল",
+ "begin.t1":"একটি ছোট বাড়ি","begin.t2":"শ্রমিকের বাড়ি","begin.t3":"ছাগল","begin.t4":"মুরগি","begin.t5":"হাঁস","begin.t6":"মাছসহ একটি পুকুর","begin.t7":"ফসলের জমি, ফল ও সবজি",
+ "begin.n1":"মসজিদ","begin.n2":"মাদ্রাসা","begin.n3":"হাসপাতাল","begin.n4":"সম্প্রদায়ের ঘর","begin.n5":"বর্ধিত খামার ও বাগান","begin.n6":"বৃহত্তর পশুপালন সুবিধা","begin.n7":"শিক্ষার স্থান ও টেকসই অবকাঠামো",
+ "land.eyebrow":"জমি ঘুরে দেখুন","land.title":"আজকের কারিয়াতুল ইহসান ঘুরে দেখুন।","land.sub":"জমির যেকোনো বিন্দুতে ট্যাপ করে দেখুন, সেখানে এখন কী জন্মাচ্ছে, চরে বেড়াচ্ছে বা বয়ে চলেছে।","land.hint":"যেকোনো বিন্দুতে ট্যাপ করে জেনে নিন, সেখানে কী আছে।",
+ "land.fieldsT":"ফসলের মাঠ","land.fieldsD":"খোলা ফসলের মাঠ প্রকল্পের খাদ্য উৎপাদনের ভিত্তি।",
+ "land.livestockT":"পশুপালন","land.livestockD":"জমির ছোট বাস্তুতন্ত্রের অংশ হিসেবে স্বাভাবিকভাবে ছাগল পালন করা হয়।",
+ "land.poultryT":"হাঁস-মুরগি পালন","land.poultryD":"মুরগি মুক্তভাবে ঘুরে বেড়ায়, জমির নিত্যদিনের অংশ।",
+ "land.ducksT":"হাঁস","land.ducksD":"হাঁসগুলো পুকুরের কাছাকাছি জলাশয়ের ধারে থাকে।",
+ "land.riverT":"পুকুর ও মাছ","land.riverD":"জমির উপর রয়েছে একটি প্রাকৃতিক পুকুর, মাছ ও জীববৈচিত্র্যের আবাস।",
+ "land.homesT":"বাড়িঘর","land.homesD":"একটি ছোট বাড়ি ও একটি শ্রমিকের বাড়ি — জমির প্রথম ঘর।",
+ "land.fruitT":"ফলের বাগান","land.fruitD":"জমির প্রাকৃতিক ফলনের অংশ হিসেবে ফলের গাছ লাগানো হয়েছে।",
+ "land.vegT":"সবজি বাগান","land.vegD":"সম্প্রদায় ও দোকানের জন্য সবজি চাষ করা হয়।",
+ "agri.eyebrow":"কৃষি","agri.title":"আমাদের টিকিয়ে রাখার মতো ফসল ফলানো।","agri.sub":"কারিয়াতুল ইহসান নিজস্ব জমিতেই প্রাকৃতিকভাবে খাদ্য উৎপাদন করে — সবজি, ফল, ফসল, মাছ, গবাদিপশু ও হাঁস-মুরগি, সবই একটি চক্রে যুক্ত।",
+ "agri.cy1":"জমি","agri.cy2":"চাষাবাদ","agri.cy3":"ফসল কাটা","agri.cy4":"দোকান","agri.cy5":"সম্প্রদায়",
+ "agri.p1":"সবজি","agri.p2":"ফল","agri.p3":"ফসল","agri.p4":"মাছ",
+ "river.eyebrow":"পুকুর ও প্রকৃতি","river.title":"কারিয়াতুল ইহসানের পুকুরকে ঘিরে জড়ো হয় জীবনের ছোঁয়া।","river.sub":"জমির কেন্দ্রে থাকা একটি প্রাকৃতিক পুকুর — মাছ ধারণ করে, মাটি পুষ্ট করে, চারপাশের জীববৈচিত্র্য গড়ে তোলে।",
+ "river.tag1":"পুকুর","river.tag2":"মাছ","river.tag3":"জল","river.tag4":"গাছ","river.tag5":"মাঠ","river.tag6":"জীববৈচিত্র্য",
+ "animals.eyebrow":"পশুপাখি","animals.title":"শুধু খামার নয়, একটি জীবন্ত বাস্তুতন্ত্রের অংশ।","animals.combined":"কারিয়াতুল ইহসানের পশুপাখি","animals.a1":"ছাগল","animals.a2":"মুরগি","animals.a3":"হাঁস","animals.a4":"মাছ",
+ "future.eyebrow":"আমাদের ভবিষ্যৎ সম্প্রদায়","future.title":"ইহসানের সাথে গড়া একটি সম্প্রদায়।","future.sub":"এটিই সেই লক্ষ্য যার দিকে কারিয়াতুল ইহসান এগিয়ে চলেছে — এখনো নির্মিত না হলেও স্পষ্ট কল্পনায় আঁকা।",
+ "future.c1t":"মসজিদ","future.c1d":"সম্প্রদায়ের আধ্যাত্মিক কেন্দ্র।",
+ "future.c2t":"মাদ্রাসা","future.c2d":"জ্ঞান ও ইসলামি শিক্ষার স্থান।",
+ "future.c3t":"হাসপাতাল","future.c3d":"সম্প্রদায়ের জন্য সহজলভ্য স্বাস্থ্যসেবা।",
+ "future.c4t":"বাড়িঘর","future.c4d":"পরিবারের জন্য একটি শান্তিপূর্ণ পরিবেশ।",
+ "future.c5t":"কৃষি","future.c5d":"খাদ্য ও টেকসই জীবিকা।",
+ "future.c6t":"সম্প্রদায়ের স্থান","future.c6d":"একসাথে শেখা, মিলিত হওয়া ও বেড়ে ওঠার জায়গা।",
+ "phil.eyebrow":"ইহসানের অর্থ","phil.quote":"ইহসান মানে উৎকর্ষতা, কল্যাণ এবং সুন্দর যা কিছু তা করা।","phil.sub":"এই চেতনাই কারিয়াতুল ইহসানের প্রতিটি অংশ গড়ে তোলে — জমির পরিচর্যা থেকে শুরু করে মানুষের সাথে আচরণ ও সম্প্রদায় গঠন পর্যন্ত।",
+ "phil.v1":"মানুষের প্রতি যত্ন","phil.v2":"প্রকৃতির প্রতি যত্ন","phil.v3":"শেখা","phil.v4":"অন্যের সেবা","phil.v5":"দায়িত্বশীল নির্মাণ","phil.v6":"মর্যাদার সাথে জীবনযাপন",
+ "store.eyebrow":"আমাদের স্টোর","store.title":"আমাদের জমি থেকে আপনার ঘরে।","store.sub":"একটি শহরভিত্তিক দোকান জমি ও মানুষের মধ্যে সেতুবন্ধন তৈরি করে — এখানকার উৎপাদন এবং বাংলাদেশের ঐতিহ্যের পণ্য একসাথে নিয়ে আসে।",
+ "store.c1t":"আমাদের জমি থেকে","store.c1d":"কারিয়াতুল ইহসানে উৎপাদিত ফল, সবজি ও কৃষিপণ্য।","store.c1btn":"পণ্য দেখুন",
+ "store.c2t":"আমাদের ঐতিহ্য থেকে","store.c2d":"যত্নে তৈরি ঐতিহ্যবাহী বাংলাদেশি পোশাক ও সাংস্কৃতিক পণ্য।","store.c2btn":"পণ্য দেখুন",
+ "products.eyebrow":"পণ্য প্রদর্শনী","products.title":"আমাদের উৎপাদনের একটি ঝলক।","products.price":"মূল্য জানতে যোগাযোগ করুন","products.view":"পণ্য দেখুন",
+ "products.cat1":"আমাদের জমি থেকে","products.cat2":"আমাদের ঐতিহ্য থেকে",
+ "products.p1t":"মৌসুমি সবজি","products.p1d":"মাঠ থেকে সরাসরি সংগ্রহ করা তাজা সবজি।",
+ "products.p2t":"বাগানের ফল","products.p2d":"আমাদের ফলবাগানে প্রাকৃতিকভাবে ফলানো।",
+  "products.p3t":"চালের আটা","products.p3d":"মানসম্মত চাল থেকে তৈরি তাজা চালের আটা।",
+ "products.p4t":"সরিষার তেল","products.p4d":"আমাদের কৃষি-চক্রের সোনালি রান্নার উপকরণ।",
+ "journal.eyebrow":"কারিয়াতুল ইহসান জার্নাল","journal.title":"মাটি থেকে।",
+ "journal.tag1":"মাঠের কথা","journal.a1t":"কারিয়াতুল ইহসানে একটি দিন","journal.a1d":"মাঠ, পুকুর এবং প্রথম ছোট বাড়ির পাশ দিয়ে একটি হাঁটার অভিজ্ঞতা।",
+ "journal.tag2":"ফসল সংগ্রহ","journal.a2t":"আমাদের প্রথম ফসল","journal.a2d":"জমি প্রথমবার যা ফিরিয়ে দিয়েছে, তা ঘরে তোলার অনুভূতি।",
+ "journal.tag3":"প্রকৃতি","journal.a3t":"পুকুরের পাশে জীবন","journal.a3d":"মাছ, জল এবং পুকুরের পাড়ে নিরিবিলি সকাল।",
+ "gallery.eyebrow":"গ্যালারি","gallery.title":"ছবিতে কারিয়াতুল ইহসান।","gallery.fall":"সব","gallery.fland":"জমি","gallery.fagri":"কৃষি","gallery.fanimals":"পশুপাখি","gallery.fpond":"পুকুর",
+ "tl.eyebrow":"আমরা যেদিকে যাচ্ছি","tl.title":"ধাপে ধাপে আমাদের যাত্রা।",
+ "tl.s1tag":"ধাপ ০১","tl.s1t":"ভিত্তি","tl.s1d":"ছোট জমি ও প্রথম বাড়ি — যেখান থেকে সবকিছুর শুরু।",
+ "tl.s2tag":"ধাপ ০২","tl.s2t":"বৃদ্ধি","tl.s2d":"কৃষি, পশুপালন ও পুকুরের বাস্তুতন্ত্র রূপ নিচ্ছে।",
+ "tl.s3tag":"ধাপ ০৩","tl.s3t":"সম্প্রদায়","tl.s3d":"মসজিদ, মাদ্রাসা ও স্বাস্থ্যসেবার সূচনা।",
+ "tl.s4tag":"ধাপ ০৪","tl.s4t":"স্বনির্ভর গ্রাম","tl.s4d":"বর্ধিত কৃষি, বাড়িঘর ও ক্রমবর্ধমান সম্প্রদায়।",
+ "tl.s5tag":"ধাপ ০৫","tl.s5t":"কারিয়াতুল ইহসান","tl.s5d":"একটি সম্পূর্ণ, স্বনির্ভর জীবন্ত সম্প্রদায়।",
+ "contact.eyebrow":"আমাদের সাথে দেখা করুন","contact.title":"কারিয়াতুল ইহসান দেখতে আসুন।",
+ "contact.i1t":"প্রকল্পের অবস্থান","contact.i1d":"গুগল ম্যাপে দেখুন",
+ "contact.i2t":"শহরের দোকান","contact.i2d":"গুগল ম্যাপে দেখুন",
+ "contact.i3t":"ফোন","contact.i3d":"০১৭১৫-০০৪২৫১",
+ "contact.i4t":"ইমেইল","contact.i4d":"qariatulihsan@gmail.com",
+ "contact.i5t":"পরিদর্শনের সময়","contact.i5d":"সকাল ৯টা – রাত ১০টা (দোকান)",
+ "contact.mapPlaceholder":"মানচিত্র — অবস্থান শীঘ্রই যোগ করা হবে",
+ "scripture.hero":"“সৎকর্ম ও তাকওয়ার কাজে একে অপরকে সাহায্য কর।”","scripture.heroSrc":"— সূরা আল-মায়িদাহ, ৫:২",
+ "scripture.about":"“তিনিই তোমাদের পৃথিবীতে স্থলাভিষিক্ত করেছেন।”","scripture.aboutSrc":"— সূরা ফাতির, ৩৫:৩৯",
+ "scripture.begin":"“আল্লাহর কাছে সবচেয়ে প্রিয় আমল তা-ই, যা নিয়মিত করা হয়, যদিও তা অল্প হয়।”","scripture.beginSrc":"— বুখারী",
+ "scripture.agri":"“তিনিই বাগান সৃষ্টি করেছেন… তোমরা তার ফল খাও যখন তা পাকে, এবং ফসল তোলার দিনে তার হক আদায় কর।”","scripture.agriSrc":"— সূরা আল-আনআম, ৬:১৪১",
+ "scripture.animals":"“যে আল্লাহর সৃষ্টির প্রতি দয়ালু, সে নিজের প্রতিই দয়ালু।”","scripture.animalsSrc":"— আবু দাউদ ২৮৫৮",
+ "scripture.phil":"“আল্লাহ প্রতিটি বিষয়ে ইহসান (উৎকর্ষতা) অবলম্বন করা ফরয করেছেন।”","scripture.philSrc":"— সহীহ মুসলিম ১৯৫৫",
+ "scripture.store":"“ন্যায্যভাবে মাপ ও ওজন পূর্ণ কর।”","scripture.storeSrc":"— সূরা আল-আনআম, ৬:১৫২",
+ "scripture.contact":"“নিশ্চয় আল্লাহ তোমাদের আদেশ দিচ্ছেন যে, আমানত তার হকদারদের কাছে পৌঁছে দাও।”","scripture.contactSrc":"— সূরা আন-নিসা, ৪:৫৮",
+ "footer.tag":"ঈমান। প্রকৃতি। সম্প্রদায়। জীবনযাপনের এক উত্তম পথ।",
+ "footer.h1":"ঘুরে দেখুন","footer.h2":"দোকান","footer.h3":"যোগাযোগ",
+ "footer.s1":"পণ্যসমূহ","footer.s2":"আমাদের জমি থেকে","footer.s3":"আমাদের ঐতিহ্য থেকে",
+ "footer.c1":"ফেসবুক","footer.c2":"ইনস্টাগ্রাম",
+ "footer.copy":"© ২০২৬ কারিয়াতুল ইহসান। সর্বস্বত্ব সংরক্ষিত।"
+}
+};
+window.QICMSRuntime?.connect(dict);
+function setLang(lang){document.documentElement.setAttribute('data-lang',lang);document.documentElement.setAttribute('lang', lang==='bn'?'bn':'en');document.querySelectorAll('[data-i18n]').forEach(el=>{const key = el.getAttribute('data-i18n');if(dict[lang] && dict[lang][key]) el.textContent = dict[lang][key];});document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.setlang===lang));localStorage.setItem('qi-lang', lang);}
+document.querySelectorAll('[data-setlang]').forEach(b=>{b.addEventListener('click', ()=> setLang(b.dataset.setlang));});
+setLang(localStorage.getItem('qi-lang') || 'en');
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', ()=>{navbar.classList.toggle('scrolled', window.scrollY > 40);});
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileToggle.addEventListener('click', ()=>{mobileMenu.classList.toggle('open');});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });},{threshold:0.14});
+revealEls.forEach(el=>io.observe(el));
+document.querySelectorAll('.explorer-point').forEach(p=>{p.addEventListener('click', ()=>{const key = p.dataset.point;document.querySelectorAll('.explorer-card').forEach(c=>{c.classList.toggle('show', c.dataset.card===key);if(c.dataset.card===key){c.style.top = p.style.top;c.style.left = p.style.left;}});});});
+document.getElementById('explorer').addEventListener('click',(e)=>{if(!e.target.closest('.explorer-point')){document.querySelectorAll('.explorer-card').forEach(c=>c.classList.remove('show'));}});
+const galleryGrid = document.getElementById('galleryGrid');
+galleryGrid.innerHTML = [
+  '<div class="gallery-item" data-cat="land"><img src="gallery-field-horizon-clean.jpg" alt="Field and tree at Qariatul Ihsan" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-okra-flower-clean.jpg" alt="Okra plant in the garden" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-yellow-flower-clean.jpg" alt="Yellow flower by the farm" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-red-leaf-plant-clean.jpg" alt="Red-leaf plant in the garden" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="land"><img src="gallery-farm-building-clean.jpg" alt="Farm building and garden" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-citrus-tree-clean.jpg" alt="Citrus tree with green fruit" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="land"><img src="gallery-small-house-clean.jpg" alt="Small farm house" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="land"><img src="gallery-tree-seating-clean.jpg" alt="Large tree and chairs" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="pond"><img src="gallery-field-canopy-clean.jpg" alt="Pond at Qariatul Ihsan" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-foxtail-grass-clean.jpg" alt="Foxtail grass in the field" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-leafy-crop-clean.jpg" alt="Green leafy crop" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-red-amaranth-close-clean.jpg" alt="Red amaranth plant" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-okra-pod-clean.jpg" alt="Okra pod on a leaf" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="agri"><img src="gallery-red-amaranth-field-clean.jpg" alt="Red amaranth field" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="animals"><img src="gallery-chickens-coop.jpg" alt="Chickens inside the Qariatul Ihsan poultry shelter" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="animals"><img src="gallery-ducklings-pen.jpg" alt="Young ducks inside their protected pen" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="pond"><img src="gallery-ducks-pond-close.jpg" alt="Duck flock swimming together in the pond" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="pond"><img src="gallery-ducks-pond-goats.jpg" alt="Ducks on the pond with goats beside the field" loading="lazy"></div>',
+  '<div class="gallery-item" data-cat="pond"><img src="gallery-ducks-pond-wide.jpg" alt="Wide view of ducks swimming at Qariatul Ihsan" loading="lazy"></div>'
+].join('');
+document.querySelectorAll('.gfilter').forEach(btn=>{btn.addEventListener('click', ()=>{document.querySelectorAll('.gfilter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f = btn.dataset.filter;document.querySelectorAll('.gallery-item').forEach(item=>{item.style.display = (f==='all' || item.dataset.cat===f) ? 'block' : 'none';});});});
+document.querySelectorAll('.animal-card').forEach(card=>{card.setAttribute('role','img');card.setAttribute('aria-label',card.textContent.trim()+' at Qariatul Ihsan');});
+const lightbox = document.getElementById('lightbox');
+ const lightboxImg = document.getElementById('lightboxImg');
+ document.querySelectorAll('.gallery-item').forEach(item=>{
+   const photo = item.querySelector('img');
+   const label = `${item.dataset.cat || 'land'} photograph from Qariatul Ihsan`;
+   item.setAttribute('role','button');
+   item.setAttribute('tabindex','0');
+   item.setAttribute('aria-label',label);
+   const openLightbox = ()=>{
+     lightboxImg.innerHTML = '';
+     const fullPhoto = photo.cloneNode(true);
+     fullPhoto.removeAttribute('loading');
+     lightboxImg.appendChild(fullPhoto);
+     lightbox.classList.add('open');
+   };
+   item.addEventListener('click', openLightbox);
+   item.addEventListener('keydown', e=>{if(e.key==='Enter' || e.key===' '){e.preventDefault();openLightbox();}});
+ });
+document.getElementById('lightboxClose').addEventListener('click', ()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+</script>
+</body>
+</html>

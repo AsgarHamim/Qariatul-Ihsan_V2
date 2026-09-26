@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Admin — Qariatul Ihsan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#183c2b;--forest-2:#24543d;--gold:#b78a3e;--cream:#f7f3e9;--paper:#fffdfa;--ink:#1e2b24;--muted:#69766f;--line:#dfe5df;--danger:#a13f35;--shadow:0 12px 35px rgba(21,52,37,.09)}
+*{box-sizing:border-box}html{background:var(--cream)}body{margin:0;color:var(--ink);font-family:'Work Sans','Noto Sans Bengali',sans-serif;font-size:16px}.shell{min-height:100vh;display:grid;grid-template-rows:auto 1fr}.topbar{position:sticky;top:0;z-index:20;background:var(--forest);color:#fff;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 2px 14px rgba(0,0,0,.12)}.brand{display:flex;align-items:center;gap:11px}.brand img{width:46px;height:46px;object-fit:cover;border-radius:8px}.brand strong{font-size:1rem}.brand span{display:block;color:#cbd8d1;font-size:.8rem;margin-top:2px}.top-actions{display:flex;gap:9px;align-items:center}.btn{border:1px solid transparent;border-radius:9px;padding:10px 14px;font:600 .86rem inherit;cursor:pointer;transition:.15s;background:var(--forest);color:#fff}.btn:hover{transform:translateY(-1px)}.btn-light{background:#fff;color:var(--forest)}.btn-outline{background:transparent;border-color:rgba(255,255,255,.35)}.btn-soft{background:#edf3ef;color:var(--forest)}.btn-danger{background:#fff0ee;color:var(--danger);border-color:#f0cbc6}.workspace{display:grid;grid-template-columns:250px minmax(420px,1fr) minmax(360px,42vw);min-height:calc(100vh - 72px)}.sidebar{background:#fff;border-right:1px solid var(--line);padding:20px 14px;overflow:auto}.mode-switch{display:grid;grid-template-columns:1fr 1fr;background:#edf2ee;border-radius:10px;padding:4px;margin-bottom:20px}.mode-btn{border:0;background:transparent;padding:10px 7px;border-radius:8px;color:var(--muted);font:600 .85rem inherit;cursor:pointer}.mode-btn.active{background:var(--forest);color:#fff;box-shadow:0 3px 10px rgba(24,60,43,.18)}.sidebar-label{margin:18px 10px 8px;color:#88938d;text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;font-weight:700}.section-nav{display:flex;flex-direction:column;gap:3px}.section-btn{border:0;background:transparent;text-align:left;border-radius:8px;padding:10px 11px;color:#47554d;cursor:pointer;font:500 .86rem inherit;display:flex;justify-content:space-between;gap:8px}.section-btn:hover{background:#f3f6f4}.section-btn.active{background:#e4eee8;color:var(--forest);font-weight:700}.count{color:#87928c;font-size:.72rem}.editor{padding:25px;overflow:auto}.editor-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}.editor-head h1{font-size:1.5rem;margin:0 0 5px}.editor-head p{margin:0;color:var(--muted);font-size:.9rem}.save-state{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.8rem;white-space:nowrap}.save-dot{width:8px;height:8px;border-radius:50%;background:#9da8a2}.save-state.changed .save-dot{background:var(--gold)}.save-state.saved .save-dot{background:#2e8a58}.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap}.search{position:relative;flex:1;min-width:210px}.search input{width:100%;padding:11px 13px 11px 38px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit}.search svg{position:absolute;left:12px;top:12px;color:#89948e}.lang-tabs{display:flex;border:1px solid var(--line);border-radius:9px;background:#fff;padding:3px}.lang-tab{border:0;background:transparent;border-radius:7px;padding:8px 12px;cursor:pointer;font:600 .82rem inherit;color:var(--muted)}.lang-tab.active{background:var(--forest);color:#fff}.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}.panel-title{padding:17px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panel-title h2{font-size:1rem;margin:0}.fields{padding:4px 19px 18px}.field{padding:15px 0;border-bottom:1px solid #ebefec}.field:last-child{border-bottom:0}.field-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:7px}.field label{font-size:.82rem;font-weight:700;color:#35483e}.key{font-family:ui-monospace,Consolas,monospace;font-size:.66rem;color:#98a19c}.field input,.field textarea{width:100%;border:1px solid #d9e1dc;border-radius:8px;background:#fff;padding:10px 11px;font:inherit;color:var(--ink);line-height:1.45;resize:vertical}.field textarea{min-height:88px}.field input:focus,.field textarea:focus,.search input:focus{outline:2px solid rgba(183,138,62,.35);border-color:var(--gold)}.empty{padding:55px 20px;text-align:center;color:var(--muted)}.image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.image-card{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:0 5px 18px rgba(25,56,41,.06)}.image-preview{aspect-ratio:16/10;background:#e9efea center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#849189;font-size:.8rem;position:relative}.image-preview img{width:100%;height:100%;object-fit:cover}.changed-badge{position:absolute;top:9px;right:9px;background:var(--gold);color:#fff;border-radius:999px;padding:4px 8px;font-size:.67rem;font-weight:700}.image-body{padding:13px}.image-body h3{font-size:.9rem;margin:0 0 4px}.image-body p{margin:0 0 12px;color:var(--muted);font-size:.75rem}.image-actions{display:flex;gap:7px}.upload-label{flex:1;background:var(--forest);color:#fff;border-radius:8px;padding:9px 10px;text-align:center;font-size:.78rem;font-weight:700;cursor:pointer}.upload-label input{display:none}.restore-image{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;cursor:pointer;color:var(--danger);font-weight:700}.preview-pane{border-left:1px solid var(--line);background:#dfe6e1;display:flex;flex-direction:column;min-width:0}.preview-head{height:52px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 14px}.preview-head strong{font-size:.86rem}.preview-head span{font-size:.75rem;color:var(--muted)}.preview-frame{width:100%;height:calc(100vh - 124px);border:0;background:#fff}.toast{position:fixed;right:24px;bottom:24px;background:#1d3328;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 12px 35px rgba(0,0,0,.22);font-size:.86rem;opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:none}.danger-zone{margin-top:18px;padding:16px;border:1px solid #efcfca;background:#fff7f5;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:15px}.danger-zone strong{font-size:.88rem}.danger-zone p{font-size:.76rem;color:#7c6864;margin:3px 0 0}
+@media(max-width:1180px){.workspace{grid-template-columns:220px 1fr}.preview-pane{display:none}}
+@media(max-width:760px){.topbar{padding:11px 14px}.brand span{display:none}.top-actions .btn-outline{display:none}.workspace{display:block}.sidebar{position:sticky;top:68px;z-index:10;padding:10px 12px;border-right:0;border-bottom:1px solid var(--line)}.section-nav{flex-direction:row;overflow:auto;padding-bottom:3px}.section-btn{white-space:nowrap}.sidebar-label{display:none}.mode-switch{margin-bottom:10px}.editor{padding:18px 12px}.editor-head{display:block}.save-state{margin-top:8px}.image-grid{grid-template-columns:1fr}.danger-zone{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand"><img src="../qariatul-ihsan-logo.png" alt="Qariatul Ihsan"><div><strong>Website Admin</strong><span>Qariatul Ihsan content manager</span></div></div>
+    <div class="top-actions"><button class="btn btn-outline" id="reloadPreview">Refresh preview</button><a class="btn btn-light" href="../index.html" target="_blank">Open website ↗</a></div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="mode-switch"><button class="mode-btn active" data-mode="text">Text</button><button class="mode-btn" data-mode="images">Pictures</button></div>
+      <div class="sidebar-label">Sections</div>
+      <nav class="section-nav" id="sectionNav"></nav>
+    </aside>
+    <main class="editor">
+      <div class="editor-head"><div><h1 id="pageTitle">Edit website text</h1><p id="pageSub">Choose a section and update its English or বাংলা content.</p></div><div class="save-state saved" id="saveState"><span class="save-dot"></span><span>Saved</span></div></div>
+      <div class="toolbar">
+        <div class="search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="searchInput" type="search" placeholder="Search fields"></div>
+        <div class="lang-tabs" id="langTabs"><button class="lang-tab active" data-lang="en">English</button><button class="lang-tab" data-lang="bn">বাংলা</button></div>
+        <button class="btn" id="saveText">Save changes</button>
+      </div>
+      <section id="contentArea"><div class="panel"><div class="empty">Loading website content…</div></div></section>
+      <div class="danger-zone"><div><strong>Restore all original content</strong><p>Removes every text and picture change saved from this admin page.</p></div><button class="btn btn-danger" id="resetAll">Restore everything</button></div>
+    </main>
+    <aside class="preview-pane"><div class="preview-head"><div><strong>Live preview</strong><br><span>Updates after saving</span></div><button class="btn btn-soft" id="previewTop">Top</button></div><iframe class="preview-frame" id="previewFrame" src="../index.html" title="Website preview"></iframe></aside>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="../cms-runtime.js"></script>
+<script>
+const sectionNames={nav:'Navigation',hero:'Home',about:'About',begin:'Beginning',land:'Our Land',agri:'Agriculture',river:'Pond & Nature',animals:'Animals',future:'Future Community',phil:'Meaning of Ihsan',store:'Store',products:'Products',journal:'Journal',gallery:'Gallery',tl:'Journey',contact:'Contact',scripture:'Quran & Hadith',footer:'Footer'};
+const state={mode:'text',section:'hero',lang:'en',query:'',defaults:{en:{},bn:{}},current:{en:{},bn:{}},draft:{en:{},bn:{}},imageSection:'Home'};
+const frame=document.getElementById('previewFrame');
+const area=document.getElementById('contentArea');
+const nav=document.getElementById('sectionNav');
+const search=document.getElementById('searchInput');
+const saveState=document.getElementById('saveState');
+
+function toast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.classList.remove('show'),2400)}
+function humanize(key){const name=key.split('.').pop().replace(/([a-z])([A-Z])/g,'$1 $2').replace(/([a-zA-Z])(\d+)/g,'$1 $2');return name.replace(/^c(\d+)(t|d)$/,'Card $1 $2').replace(/^p(\d+)(t|d)$/,'Product $1 $2').replace(/\bt$/,'title').replace(/\bd$/,'description').replace(/\bsub$/,'description').replace(/\beyebrow$/,'small heading').replace(/^./,c=>c.toUpperCase())}
+function prefix(key){return key.split('.')[0]}
+function setSaveState(kind){saveState.className='save-state '+kind;saveState.querySelector('span:last-child').textContent=kind==='changed'?'Unsaved changes':kind==='saved'?'Saved':'Working…'}
+function iframeApi(){try{return frame.contentWindow.QICMSRuntime}catch(_){return null}}
+function refreshPreview(){frame.src='../index.html?cms='+Date.now()}
+
+function loadTexts(){
+  const api=iframeApi();
+  if(!api)return;
+  state.defaults=api.getDefaultTexts();
+  state.current=api.getCurrentTexts();
+  state.draft=JSON.parse(JSON.stringify(state.current));
+  renderNav();render();
+}
+
+function sections(){return [...new Set(Object.keys(state.defaults.en||{}).map(prefix))]}
+function renderNav(){
+  const items=state.mode==='text'?sections():[...new Set(QICMSRuntime.imageSlots.map(x=>x.section))];
+  if(state.mode==='text'&&!items.includes(state.section))state.section=items[0]||'';
+  if(state.mode==='images'&&!items.includes(state.imageSection))state.imageSection=items[0]||'';
+  const active=state.mode==='text'?state.section:state.imageSection;
+  nav.innerHTML=items.map(item=>{const count=state.mode==='text'?Object.keys(state.defaults.en).filter(k=>prefix(k)===item).length:QICMSRuntime.imageSlots.filter(x=>x.section===item).length;return `<button class="section-btn ${item===active?'active':''}" data-section="${item}"><span>${state.mode==='text'?(sectionNames[item]||item):item}</span><span class="count">${count}</span></button>`}).join('');
+}
+
+function renderText(){
+  document.getElementById('pageTitle').textContent='Edit website text';
+  document.getElementById('pageSub').textContent='Update every section in English and বাংলা.';
+  document.getElementById('langTabs').style.display='flex';document.getElementById('saveText').style.display='inline-block';
+  search.placeholder='Search text fields';
+  let keys=Object.keys(state.defaults[state.lang]||{}).filter(k=>prefix(k)===state.section);
+  if(state.query)keys=keys.filter(k=>(k+' '+state.draft[state.lang][k]).toLowerCase().includes(state.query));
+  if(!keys.length){area.innerHTML='<div class="panel"><div class="empty">No matching fields in this section.</div></div>';return}
+  const fields=keys.map(key=>{const value=state.draft[state.lang][key]??'';const multiline=value.length>72||/\.sub$|\.d$|scripture\./.test(key);return `<div class="field"><div class="field-top"><label for="f-${key.replace(/\./g,'-')}">${humanize(key)}</label><span class="key">${key}</span></div>${multiline?`<textarea id="f-${key.replace(/\./g,'-')}" data-key="${key}">${escapeHtml(value)}</textarea>`:`<input id="f-${key.replace(/\./g,'-')}" data-key="${key}" value="${escapeAttr(value)}">`}</div>`}).join('');
+  area.innerHTML=`<div class="panel"><div class="panel-title"><h2>${sectionNames[state.section]||state.section}</h2><button class="btn btn-soft" id="resetSection">Restore section</button></div><div class="fields">${fields}</div></div>`;
+}
+
+async function imagePreview(slot){
+  const holder=document.querySelector(`[data-preview="${slot.id}"]`);if(!holder)return;
+  const blob=await QICMSRuntime.getImage(slot.id).catch(()=>null);let url='';
+  if(blob){url=URL.createObjectURL(blob);holder.dataset.objectUrl=url;holder.insertAdjacentHTML('beforeend','<span class="changed-badge">Changed</span>')}
+  if(!url){try{const api=iframeApi();if(api)url=api.getSlotPreview(slot,frame.contentDocument)}catch(_){url=''}}
+  if(url){holder.style.backgroundImage=`url("${url}")`;holder.textContent='';if(blob)holder.insertAdjacentHTML('beforeend','<span class="changed-badge">Changed</span>')}
+  else holder.textContent='No preview available';
+}
+async function renderImages(){
+  document.getElementById('pageTitle').textContent='Change website pictures';
+  document.getElementById('pageSub').textContent='Upload a replacement or restore the original image at any time.';
+  document.getElementById('langTabs').style.display='none';document.getElementById('saveText').style.display='none';search.placeholder='Search pictures';
+  let slots=QICMSRuntime.imageSlots.filter(x=>x.section===state.imageSection);
+  if(state.query)slots=slots.filter(x=>(x.label+' '+x.section).toLowerCase().includes(state.query));
+  if(!slots.length){area.innerHTML='<div class="panel"><div class="empty">No matching pictures in this section.</div></div>';return}
+  area.innerHTML=`<div class="image-grid">${slots.map(slot=>`<article class="image-card"><div class="image-preview" data-preview="${slot.id}">Loading preview…</div><div class="image-body"><h3>${slot.label}</h3><p>${slot.section}</p><div class="image-actions"><label class="upload-label">Choose replacement<input type="file" accept="image/*" data-upload="${slot.id}"></label><button class="restore-image" data-restore="${slot.id}" title="Restore original">↺</button></div></div></article>`).join('')}</div>`;
+  slots.forEach(imagePreview);
+}
+function render(){state.mode==='text'?renderText():renderImages()}
+function escapeHtml(value){return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function escapeAttr(value){return escapeHtml(value).replace(/"/g,'&quot;')}
+
+document.querySelectorAll('.mode-btn').forEach(btn=>btn.addEventListener('click',()=>{state.mode=btn.dataset.mode;document.querySelectorAll('.mode-btn').forEach(x=>x.classList.toggle('active',x===btn));state.query='';search.value='';renderNav();render()}));
+nav.addEventListener('click',e=>{const btn=e.target.closest('[data-section]');if(!btn)return;if(state.mode==='text')state.section=btn.dataset.section;else state.imageSection=btn.dataset.section;renderNav();render()});
+document.getElementById('langTabs').addEventListener('click',e=>{const btn=e.target.closest('[data-lang]');if(!btn)return;state.lang=btn.dataset.lang;document.querySelectorAll('.lang-tab').forEach(x=>x.classList.toggle('active',x===btn));renderText()});
+search.addEventListener('input',()=>{state.query=search.value.trim().toLowerCase();render()});
+area.addEventListener('input',e=>{if(!e.target.dataset.key)return;state.draft[state.lang][e.target.dataset.key]=e.target.value;setSaveState('changed')});
+area.addEventListener('change',async e=>{const input=e.target.closest('[data-upload]');if(!input||!input.files[0])return;const file=input.files[0];if(!file.type.startsWith('image/')){toast('Please choose an image file.');return}setSaveState('working');await QICMSRuntime.putImage(input.dataset.upload,file);toast('Picture updated.');setSaveState('saved');refreshPreview();renderImages()});
+area.addEventListener('click',async e=>{const reset=e.target.closest('#resetSection');if(reset){Object.keys(state.defaults[state.lang]).filter(k=>prefix(k)===state.section).forEach(k=>state.draft[state.lang][k]=state.defaults[state.lang][k]);setSaveState('changed');renderText();return}const restore=e.target.closest('[data-restore]');if(restore){await QICMSRuntime.deleteImage(restore.dataset.restore);toast('Original picture restored.');refreshPreview();renderImages()}});
+document.getElementById('saveText').addEventListener('click',()=>{const overrides={en:{},bn:{}};['en','bn'].forEach(lang=>Object.keys(state.defaults[lang]).forEach(key=>{if(state.draft[lang][key]!==state.defaults[lang][key])overrides[lang][key]=state.draft[lang][key]}));QICMSRuntime.writeTextOverrides(overrides);state.current=JSON.parse(JSON.stringify(state.draft));setSaveState('saved');toast('Text changes saved.');refreshPreview()});
+document.getElementById('reloadPreview').addEventListener('click',refreshPreview);document.getElementById('previewTop').addEventListener('click',()=>{try{frame.contentWindow.scrollTo({top:0,behavior:'smooth'})}catch(_){}});
+document.getElementById('resetAll').addEventListener('click',async()=>{if(!confirm('Restore every original text and picture? This removes all admin changes.'))return;QICMSRuntime.writeTextOverrides({en:{},bn:{}});for(const slot of QICMSRuntime.imageSlots)await QICMSRuntime.deleteImage(slot.id);toast('All original content restored.');refreshPreview()});
+frame.addEventListener('load',()=>{setTimeout(loadTexts,80)});
+setTimeout(()=>{if(!Object.keys(state.defaults.en).length)loadTexts()},500);
+</script>
+</body>
+</html>
